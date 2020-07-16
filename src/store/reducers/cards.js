@@ -26,9 +26,7 @@ export default function cards(state = [], { type, payload }) {
       );
     case CHANGE_CARD_DESCRIPTION:
       return state.map((card) =>
-        card.cardId === payload.id
-          ? { ...card, description: payload.description }
-          : card
+        card.cardId === payload.id ? { ...card, description: payload.description } : card
       );
     default:
       return state;

@@ -7,6 +7,7 @@ export const ADD_COMMENT = "ADD_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
 export const CHANGE_COMMENT = "CHANGE_COMMENT";
 
+export const ADD_COLUMN = "ADD_COLUMN";
 export const CHANGE_COLUMN_TITLE = "CHANGE_COLUMN_TITLE";
 export const OPEN_CARD_MODAL = "OPEN_CARD_MODAL";
 

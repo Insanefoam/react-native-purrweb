@@ -1,16 +1,15 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { useSelector, useDispatch } from "react-redux";
+import { View, Text, StyleSheet, Button, ScrollView } from "react-native";
 import { getColumns } from "../store/selectors";
+import Column from "./Column";
+import { addColumn } from "../store/actions";
 
 const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-  },
   titleContainer: {
     borderBottomWidth: 1,
     borderBottomColor: "#E5E5E5",
-    justifyContent: "center",
+    justifyContent: "flex-end",
     width: "100%",
     paddingVertical: 20,
     marginBottom: 20,
@@ -21,31 +20,28 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     fontSize: 30,
+    marginRight: 30,
   },
   columnsContainer: {
-    flex: 1,
-  },
-  columns: {
-    fontSize: 25,
-    marginBottom: 20,
-    borderWidth: 1,
+    alignItems: "center",
   },
 });
 
 const Desk = () => {
   const columns = useSelector(getColumns);
+  const dispatch = useDispatch();
 
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
         <Text style={styles.title}>My Desk</Text>
-        <Button title="+" />
+        <Button title="Add column" onPress={() => dispatch(addColumn())} />
       </View>
-      <View style={styles.columnsContainer}>
+      <ScrollView contentContainerStyle={styles.columnsContainer}>
         {columns.map((column) => (
-          <Text style={styles.columns}>{column.title}</Text>
+          <Column id={column.columnId} key={column.columnId} />
         ))}
-      </View>
+      </ScrollView>
     </View>
   );
 };

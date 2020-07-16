@@ -6,6 +6,7 @@ import {
   ADD_COMMENT,
   DELETE_COMMENT,
   CHANGE_COMMENT,
+  ADD_COLUMN,
   CHANGE_COLUMN_TITLE,
   INIT_USER,
 } from "../constants/action_types";
@@ -43,6 +44,11 @@ export const deleteComment = (id) => ({
 export const changeComment = (id, name) => ({
   type: CHANGE_COMMENT,
   payload: { id, name },
+});
+
+export const addColumn = () => ({
+  type: ADD_COLUMN,
+  payload: {},
 });
 
 export const changeColumnTitle = (id, name) => ({
