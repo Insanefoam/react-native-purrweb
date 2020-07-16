@@ -1,5 +1,7 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { View, Text, StyleSheet, Button } from "react-native";
+import { getColumns } from "../store/selectors";
 
 const styles = StyleSheet.create({
   container: {
@@ -31,7 +33,7 @@ const styles = StyleSheet.create({
 });
 
 const Desk = () => {
-  const columns = ["To do", "In progress", "Testing", "Done"];
+  const columns = useSelector(getColumns);
 
   return (
     <View style={styles.container}>
@@ -41,7 +43,7 @@ const Desk = () => {
       </View>
       <View style={styles.columnsContainer}>
         {columns.map((column) => (
-          <Text style={styles.columns}>{column}</Text>
+          <Text style={styles.columns}>{column.title}</Text>
         ))}
       </View>
     </View>
