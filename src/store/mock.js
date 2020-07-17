@@ -47,11 +47,18 @@ const cards = [
     name: "Testing card 1",
   },
   {
-    author: "John Lennon",
+    author: "John Doe",
     cardId: 2,
+    columnId: 0,
+    description: "Mock description 1",
+    name: "Testing card 2",
+  },
+  {
+    author: "John Lennon",
+    cardId: 3,
     columnId: 1,
     description: "Mock description 2",
-    name: "Testing card 2",
+    name: "Testing card 3",
   },
 ];
 

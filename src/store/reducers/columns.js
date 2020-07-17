@@ -7,7 +7,6 @@ export default function columns(state = [], { type, payload }) {
         column.columnId === payload.id ? { ...column, title: payload.name } : column
       );
     case ADD_COLUMN: {
-      console.log("hello");
       return [...state, { columndId: Date.now(), title: "" }];
     }
     default:
