@@ -1,5 +1,13 @@
-import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Button, ScrollView } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Button,
+  ScrollView,
+  TextInput,
+} from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { getCards } from "../store/selectors";
 import { addCard } from "../store/actions";
@@ -16,11 +24,23 @@ const styles = StyleSheet.create({
     padding: 15,
     width: 345,
   },
+  inputContainer: {
+    justifyContent: "center",
+    flexDirection: "row",
+    marginVertical: 10,
+  },
+  inputField: {
+    width: 300,
+    borderWidth: 1,
+    marginRight: 20,
+    padding: 5,
+  },
 });
 
 const Column = ({ route, navigation }) => {
   const { id } = route.params;
   const cards = useSelector((state) => getCards(state, id));
+  const [newCard, setNewCard] = useState("");
   const dispatch = useDispatch();
 
   const renderCards = () => {
@@ -33,16 +53,24 @@ const Column = ({ route, navigation }) => {
     ));
   };
 
-  navigation.setOptions({
-    headerTitle: "Column",
-    headerRight: () => (
-      <Button title="+" color="#72A8BC" onPress={() => dispatch(addCard("", id))} />
-    ),
-  });
+  const addNewCard = () => {
+    dispatch(addCard(newCard, id, ""));
+    setNewCard("");
+  };
 
   return (
-    <View style={styles.cardsContainer}>
-      <ScrollView>{renderCards()}</ScrollView>
+    <View>
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.inputField}
+          onChangeText={(text) => setNewCard(text)}
+          value={newCard}
+        />
+        <Button onPress={addNewCard} title="+" />
+      </View>
+      <View style={styles.cardsContainer}>
+        <ScrollView>{renderCards()}</ScrollView>
+      </View>
     </View>
   );
 };

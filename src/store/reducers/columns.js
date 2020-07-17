@@ -7,7 +7,7 @@ export default function columns(state = [], { type, payload }) {
         column.columnId === payload.id ? { ...column, title: payload.name } : column
       );
     case ADD_COLUMN: {
-      return [...state, { columndId: Date.now(), title: "" }];
+      return [...state, { columndId: Date.now(), title: payload.name }];
     }
     default:
       return state;

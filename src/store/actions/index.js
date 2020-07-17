@@ -46,9 +46,9 @@ export const changeComment = (id, name) => ({
   payload: { id, name },
 });
 
-export const addColumn = () => ({
+export const addColumn = (name) => ({
   type: ADD_COLUMN,
-  payload: {},
+  payload: { name },
 });
 
 export const changeColumnTitle = (id, name) => ({

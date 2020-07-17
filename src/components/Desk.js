@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { View, Text, StyleSheet, Button, ScrollView } from "react-native";
+import { View, Text, StyleSheet, Button, ScrollView, TextInput } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { getColumns } from "../store/selectors";
 import { addColumn } from "../store/actions";
@@ -17,11 +17,23 @@ const styles = StyleSheet.create({
     padding: 15,
     width: 345,
   },
+  inputContainer: {
+    justifyContent: "center",
+    flexDirection: "row",
+    marginVertical: 10,
+  },
+  inputField: {
+    width: 300,
+    borderWidth: 1,
+    marginRight: 20,
+    padding: 5,
+  },
 });
 
 const Desk = ({ navigation }) => {
   const columns = useSelector(getColumns);
   const dispatch = useDispatch();
+  const [newColumn, setNewColumn] = useState("");
 
   const renderColumns = () => {
     return columns.map((column) => (
@@ -36,13 +48,21 @@ const Desk = ({ navigation }) => {
     ));
   };
 
-  navigation.setOptions({
-    headerTitle: "My Desk",
-    headerRight: () => <Button title="+" color="#72A8BC" onPress={() => dispatch(addColumn())} />,
-  });
+  const addNewColumn = () => {
+    dispatch(addColumn(newColumn));
+    setNewColumn("");
+  };
 
   return (
     <View style={styles.container}>
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.inputField}
+          onChangeText={(text) => setNewColumn(text)}
+          value={newColumn}
+        />
+        <Button onPress={addNewColumn} title="+" />
+      </View>
       <ScrollView contentContainerStyle={styles.columnsContainer}>
         {renderColumns(columns)}
       </ScrollView>
