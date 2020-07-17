@@ -10,14 +10,14 @@ import {
   Alert,
 } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
-import { getCards } from "../store/selectors";
-import { addCard } from "../store/actions";
+import { getCard, getComments } from "../store/selectors";
+import { addComment } from "../store/actions";
 
 const styles = StyleSheet.create({
-  cardsContainer: {
+  commentsContainer: {
     alignItems: "center",
   },
-  cardContainer: {
+  commentContainer: {
     marginBottom: 50,
     borderWidth: 1,
     borderRadius: 4,
@@ -38,32 +38,30 @@ const styles = StyleSheet.create({
   },
 });
 
-const Column = ({ route, navigation }) => {
+const Card = ({ route }) => {
   const { id } = route.params;
-  const cards = useSelector((state) => getCards(state, id));
+  const card = useSelector((state) => getCard(state, id));
+  const comments = useSelector((state) => getComments(state, id));
   const dispatch = useDispatch();
-  const [newCard, setNewCard] = useState("");
-
-  const renderCards = () => {
-    return cards.map((card) => (
-      <TouchableOpacity
-        key={card.cardId}
-        onPress={() => navigation.navigate("Card", { id: card.cardId })}
-      >
-        <View style={styles.cardContainer}>
-          <Text>{card.name}</Text>
-        </View>
-      </TouchableOpacity>
-    ));
-  };
+  const [newComment, setNewComment] = useState("");
 
   const addNewCard = () => {
-    if (newCard) {
-      dispatch(addCard(newCard, id, ""));
-      setNewCard("");
+    if (newComment) {
+      dispatch(addComment(newComment, id, ""));
+      setNewComment("");
     } else {
       Alert.alert("Слишком короткое имя карточки");
     }
+  };
+
+  const renderComments = () => {
+    return comments.map((comment) => (
+      <TouchableOpacity key={comment.commentId}>
+        <View style={styles.commentContainer}>
+          <Text>{comment.name}</Text>
+        </View>
+      </TouchableOpacity>
+    ));
   };
 
   return (
@@ -71,16 +69,16 @@ const Column = ({ route, navigation }) => {
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.inputField}
-          onChangeText={(text) => setNewCard(text)}
-          value={newCard}
+          onChangeText={(text) => setNewComment(text)}
+          value={newComment}
         />
         <Button onPress={addNewCard} title="+" />
       </View>
-      <View style={styles.cardsContainer}>
-        <ScrollView>{renderCards()}</ScrollView>
+      <View style={styles.commentsContainer}>
+        <ScrollView>{renderComments()}</ScrollView>
       </View>
     </View>
   );
 };
 
-export default Column;
+export default Card;

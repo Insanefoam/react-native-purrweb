@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { View, Text, StyleSheet, Button, ScrollView, TextInput } from "react-native";
+import { View, Text, StyleSheet, Button, ScrollView, TextInput, Alert } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { getColumns } from "../store/selectors";
 import { addColumn } from "../store/actions";
@@ -49,8 +49,12 @@ const Desk = ({ navigation }) => {
   };
 
   const addNewColumn = () => {
-    dispatch(addColumn(newColumn));
-    setNewColumn("");
+    if (newColumn) {
+      dispatch(addColumn(newColumn));
+      setNewColumn("");
+    } else {
+      Alert.alert("Слишком короткое название столбца");
+    }
   };
 
   return (
