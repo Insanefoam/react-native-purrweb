@@ -9,8 +9,9 @@ import {
   TextInput,
   Alert,
 } from "react-native";
+import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
-import { getCards } from "../store/selectors";
+import { getCards, getCommentsCount } from "../store/selectors";
 import { addCard } from "../store/actions";
 
 const styles = StyleSheet.create({
@@ -41,8 +42,10 @@ const styles = StyleSheet.create({
 const Column = ({ route, navigation }) => {
   const { id } = route.params;
   const cards = useSelector((state) => getCards(state, id));
+
   const dispatch = useDispatch();
   const [newCard, setNewCard] = useState("");
+  const commentsCount = (cardId) => useSelector((state) => getCommentsCount(state, cardId));
 
   const renderCards = () => {
     return cards.map((card) => (
@@ -51,7 +54,9 @@ const Column = ({ route, navigation }) => {
         onPress={() => navigation.navigate("Card", { id: card.cardId })}
       >
         <View style={styles.cardContainer}>
-          <Text>{card.name}</Text>
+          <Text>
+            {card.name} with {commentsCount(card.cardId)} comments
+          </Text>
         </View>
       </TouchableOpacity>
     ));
@@ -81,6 +86,17 @@ const Column = ({ route, navigation }) => {
       </View>
     </View>
   );
+};
+
+Column.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+  route: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number,
+    }),
+  }).isRequired,
 };
 
 export default Column;

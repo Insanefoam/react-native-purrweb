@@ -9,8 +9,9 @@ import {
   TextInput,
   Alert,
 } from "react-native";
+import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
-import { getCard, getComments } from "../store/selectors";
+import { getCard, getComments, getColumnName } from "../store/selectors";
 import { addComment } from "../store/actions";
 
 const styles = StyleSheet.create({
@@ -41,16 +42,17 @@ const styles = StyleSheet.create({
 const Card = ({ route }) => {
   const { id } = route.params;
   const card = useSelector((state) => getCard(state, id));
+  const columnName = useSelector((state) => getColumnName(state, card.columnId));
   const comments = useSelector((state) => getComments(state, id));
   const dispatch = useDispatch();
   const [newComment, setNewComment] = useState("");
 
-  const addNewCard = () => {
+  const addNewComment = () => {
     if (newComment) {
-      dispatch(addComment(newComment, id, ""));
+      dispatch(addComment(id, newComment, ""));
       setNewComment("");
     } else {
-      Alert.alert("Слишком короткое имя карточки");
+      Alert.alert("Слишком короткий текст комментария");
     }
   };
 
@@ -66,19 +68,33 @@ const Card = ({ route }) => {
 
   return (
     <View>
+      <View>
+        <Text>
+          Name: {card.name}; Author: {card.author}; Desciption: {card.description}; Column:{" "}
+          {columnName}
+        </Text>
+      </View>
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.inputField}
           onChangeText={(text) => setNewComment(text)}
           value={newComment}
         />
-        <Button onPress={addNewCard} title="+" />
+        <Button onPress={addNewComment} title="+" />
       </View>
       <View style={styles.commentsContainer}>
         <ScrollView>{renderComments()}</ScrollView>
       </View>
     </View>
   );
+};
+
+Card.propTypes = {
+  route: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number,
+    }),
+  }).isRequired,
 };
 
 export default Card;

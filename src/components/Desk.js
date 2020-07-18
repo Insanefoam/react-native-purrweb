@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { View, Text, StyleSheet, Button, ScrollView, TextInput, Alert } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -72,6 +73,12 @@ const Desk = ({ navigation }) => {
       </ScrollView>
     </View>
   );
+};
+
+Desk.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default Desk;
