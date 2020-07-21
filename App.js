@@ -3,12 +3,21 @@ import React from "react";
 import { Provider } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { Button } from "react-native";
 import Desk from "./src/components/Desk";
 import Column from "./src/components/Column";
 import Card from "./src/components/Card";
 import store from "./src/store/storeConfigure";
 
 const Stack = createStackNavigator();
+
+const headerStyles = {
+  headerTintColor: "#514D47",
+  headerTitleAlign: "center",
+  headerStyle: {
+    elevation: 0,
+  },
+};
 
 export default function App() {
   return (
@@ -20,11 +29,7 @@ export default function App() {
             component={Desk}
             options={{
               title: "My Desk",
-              headerTintColor: "#514D47",
-              headerTitleAlign: "center",
-              headerStyle: {
-                elevation: 0,
-              },
+              ...headerStyles,
             }}
           />
           <Stack.Screen name="Column" component={Column} />

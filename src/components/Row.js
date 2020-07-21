@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { TextInput } from "react-native-gesture-handler";
 
 const styles = StyleSheet.create({
   container: {
@@ -10,16 +11,25 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     justifyContent: "center",
     paddingLeft: 15,
-    marginBottom: 10,
+    marginTop: 10,
   },
   text: { fontSize: 17, color: "#514D47", lineHeight: 20 },
 });
 
-const Row = ({ text, id, onPress }) => {
+// TODO: Autofocus (keyboard show) on longPress
+const Row = ({ text, id, onPress, onTextChange }) => {
+  const [editable, setEditable] = useState(false);
+
   return (
-    <TouchableOpacity key={id} onPress={onPress}>
+    <TouchableOpacity key={id} onPress={onPress} onLongPress={() => setEditable(!editable)}>
       <View style={styles.container}>
-        <Text style={styles.text}>{text}</Text>
+        <TextInput
+          style={styles.text}
+          editable={editable}
+          onEndEditing={() => setEditable(!editable)}
+        >
+          {text}
+        </TextInput>
       </View>
     </TouchableOpacity>
   );

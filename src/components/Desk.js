@@ -35,29 +35,34 @@ const Desk = ({ navigation }) => {
         text={column.title}
         id={column.columnId}
         onPress={() => navigation.navigate("Column", { id: column.columnId })}
+        key={column.columnId}
       />
     ));
   };
 
-  const addNewColumn = () => {
-    if (newColumn) {
-      dispatch(addColumn(newColumn));
-      setNewColumn("");
-    } else {
-      Alert.alert("Слишком короткое название столбца");
-    }
-  };
+  navigation.setOptions({
+    headerRight: () => <Button onPress={() => dispatch(addColumn(""))} title="+" />,
+  });
+
+  // const addNewColumn = () => {
+  //   if (newColumn) {
+  //     dispatch(addColumn(newColumn));
+  //     setNewColumn("");
+  //   } else {
+  //     Alert.alert("Слишком короткое название столбца");
+  //   }
+  // };
 
   return (
     <View style={styles.container}>
-      <View style={styles.inputContainer}>
+      {/* <View style={styles.inputContainer}>
         <TextInput
           style={styles.inputField}
           onChangeText={(text) => setNewColumn(text)}
           value={newColumn}
         />
         <Button onPress={addNewColumn} title="+" />
-      </View>
+      </View> */}
       <ScrollView contentContainerStyle={styles.columnsContainer}>
         {renderColumns(columns)}
       </ScrollView>
