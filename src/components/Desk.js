@@ -5,18 +5,11 @@ import { View, Text, StyleSheet, Button, ScrollView, TextInput, Alert } from "re
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { getColumns } from "../store/selectors";
 import { addColumn } from "../store/actions";
+import Row from "./Row";
 
 const styles = StyleSheet.create({
   columnsContainer: {
     alignItems: "center",
-  },
-  columnContainer: {
-    marginBottom: 50,
-    borderWidth: 1,
-    borderRadius: 4,
-    textAlign: "center",
-    padding: 15,
-    width: 345,
   },
   inputContainer: {
     justifyContent: "center",
@@ -38,14 +31,11 @@ const Desk = ({ navigation }) => {
 
   const renderColumns = () => {
     return columns.map((column) => (
-      <TouchableOpacity
-        key={column.columnId}
+      <Row
+        text={column.title}
+        id={column.columnId}
         onPress={() => navigation.navigate("Column", { id: column.columnId })}
-      >
-        <View style={styles.columnContainer}>
-          <Text>{column.title}</Text>
-        </View>
-      </TouchableOpacity>
+      />
     ));
   };
 

@@ -15,7 +15,18 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Desk" component={Desk} />
+          <Stack.Screen
+            name="Desk"
+            component={Desk}
+            options={{
+              title: "My Desk",
+              headerTintColor: "#514D47",
+              headerTitleAlign: "center",
+              headerStyle: {
+                elevation: 0,
+              },
+            }}
+          />
           <Stack.Screen name="Column" component={Column} />
           <Stack.Screen name="Card" component={Card} />
         </Stack.Navigator>

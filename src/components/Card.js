@@ -15,11 +15,12 @@ import { getCard, getComments, getColumnName } from "../store/selectors";
 import { addComment } from "../store/actions";
 
 const styles = StyleSheet.create({
+  infoContainer: { alignItems: "center" },
   commentsContainer: {
     alignItems: "center",
   },
   commentContainer: {
-    marginBottom: 50,
+    marginBottom: 15,
     borderWidth: 1,
     borderRadius: 4,
     textAlign: "center",
@@ -29,13 +30,16 @@ const styles = StyleSheet.create({
   inputContainer: {
     justifyContent: "center",
     flexDirection: "row",
-    marginVertical: 10,
+    marginVertical: 0,
   },
   inputField: {
     width: 300,
     borderWidth: 1,
     marginRight: 20,
     padding: 5,
+  },
+  name: {
+    fontSize: 30,
   },
 });
 
@@ -68,11 +72,22 @@ const Card = ({ route }) => {
 
   return (
     <View>
-      <View>
-        <Text>
-          Name: {card.name}; Author: {card.author}; Desciption: {card.description}; Column:{" "}
-          {columnName}
-        </Text>
+      <View style={styles.infoContainer}>
+        <View style={styles.nameContainer}>
+          <Text style={styles.name}>{card.name}</Text>
+        </View>
+        <View>
+          <Text>Author: {card.author};</Text>
+        </View>
+        <View>
+          <Text>Desciption: {card.description};</Text>
+        </View>
+        <View>
+          <Text>Column: {columnName}</Text>
+        </View>
+      </View>
+      <View style={styles.commentsContainer}>
+        <ScrollView>{renderComments()}</ScrollView>
       </View>
       <View style={styles.inputContainer}>
         <TextInput
@@ -81,9 +96,6 @@ const Card = ({ route }) => {
           value={newComment}
         />
         <Button onPress={addNewComment} title="+" />
-      </View>
-      <View style={styles.commentsContainer}>
-        <ScrollView>{renderComments()}</ScrollView>
       </View>
     </View>
   );
