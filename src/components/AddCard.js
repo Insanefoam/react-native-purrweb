@@ -9,6 +9,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginVertical: 10,
     borderWidth: 1,
+    borderRadius: 10,
+    borderColor: "#E5E5E5",
+    width: 345,
   },
   inputField: {
     width: 300,
@@ -17,13 +20,13 @@ const styles = StyleSheet.create({
   },
 });
 
-const AddCard = () => {
+const AddCard = ({ columnId }) => {
   const [newCard, setNewCard] = useState("");
   const dispatch = useDispatch();
 
   const addNewCard = () => {
     if (newCard) {
-      dispatch(addCard(newCard, id, ""));
+      dispatch(addCard(newCard, columnId, ""));
       setNewCard("");
     } else {
       alert("Слишком короткое имя карточки");
@@ -37,6 +40,8 @@ const AddCard = () => {
         style={styles.inputField}
         onChangeText={(text) => setNewCard(text)}
         value={newCard}
+        placeholder="Add new card..."
+        onSubmitEditing={addNewCard}
       />
     </View>
   );

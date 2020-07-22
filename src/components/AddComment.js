@@ -37,6 +37,8 @@ const AddComment = ({ id }) => {
         style={styles.inputField}
         onChangeText={(text) => setNewComment(text)}
         value={newComment}
+        placeholder="Add new comment..."
+        onSubmitEditing={addNewComment}
       />
     </View>
   );

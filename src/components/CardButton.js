@@ -1,5 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { useSelector } from "react-redux";
+import { getCommentsCount } from "../store/selectors";
 
 const styles = StyleSheet.create({
   container: {
@@ -15,7 +17,9 @@ const styles = StyleSheet.create({
   text: { fontSize: 17, color: "#514D47", lineHeight: 20 },
 });
 
-const CardButton = ({ text, commentsCount, onPress }) => {
+const CardButton = ({ text, id, onPress }) => {
+  const commentsCount = useSelector((state) => getCommentsCount(state, id));
+
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.container}>
