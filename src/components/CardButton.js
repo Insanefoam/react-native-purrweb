@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     justifyContent: "center",
     paddingLeft: 15,
-    marginTop: 10,
+    marginTop: 15,
   },
   text: { fontSize: 17, color: "#514D47", lineHeight: 20 },
 });

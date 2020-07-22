@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     justifyContent: "center",
     flexDirection: "row",
-    marginVertical: 10,
+    marginTop: 15,
     borderWidth: 1,
     borderRadius: 10,
     borderColor: "#E5E5E5",

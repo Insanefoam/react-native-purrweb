@@ -43,13 +43,11 @@ const CardScreen = ({ route }) => {
           <Text>Desciption: {card.description};</Text>
         </View>
       </View>
-      <View>
+      <ScrollView>
         <Text style={styles.commentsTitle}>COMMENTS</Text>
-        <ScrollView>
-          {renderComments()}
-          <AddComment id={id} />
-        </ScrollView>
-      </View>
+        {renderComments()}
+        <AddComment id={id} />
+      </ScrollView>
     </View>
   );
 };

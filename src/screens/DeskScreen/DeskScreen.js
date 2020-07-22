@@ -1,11 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
-import { View, Button, ScrollView, Text } from "react-native";
+import { View, ScrollView } from "react-native";
 import { Form, Field } from "react-final-form";
 import { TextInput } from "react-native-gesture-handler";
 import { getColumns } from "../../store/selectors";
-import { addColumn } from "../../store/actions";
 import ColumnButton from "../../components/ColumnButton";
 import styles from "./styles";
 
@@ -28,10 +27,6 @@ const DeskScreen = ({ navigation }) => {
       />
     ));
   };
-
-  navigation.setOptions({
-    headerRight: () => <Button onPress={() => dispatch(addColumn(""))} title="+" />,
-  });
 
   const onSubmit = (values) => {
     alert(JSON.stringify(values, 0, 2));

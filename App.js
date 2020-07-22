@@ -7,25 +7,24 @@ import DeskScreen from "./src/screens/DeskScreen/DeskScreen";
 import ColumnScreen from "./src/screens/ColumnScreen/ColumnScreen";
 import CardScreen from "./src/screens/CardScreen/CardScreen";
 import store from "./src/store/storeConfigure";
+import DeskScreenHeader from "./src/components/DeskScreenHeader";
 
 const Stack = createStackNavigator();
 
-const headerStyles = {
-  headerTintColor: "#514D47",
-  headerTitleAlign: "center",
-  headerStyle: {
-    elevation: 0,
-  },
-};
+const noShadow = { headerStyle: { elevation: 0 } };
 
 export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="DeskScreen" component={DeskScreen} />
-          <Stack.Screen name="ColumnScreen" component={ColumnScreen} />
-          <Stack.Screen name="CardScreen" component={CardScreen} />
+          <Stack.Screen
+            name="DeskScreen"
+            component={DeskScreen}
+            options={{ headerTitle: () => <DeskScreenHeader />, ...noShadow }}
+          />
+          <Stack.Screen name="ColumnScreen" component={ColumnScreen} options={noShadow} />
+          <Stack.Screen name="CardScreen" component={CardScreen} options={noShadow} />
         </Stack.Navigator>
       </NavigationContainer>
       <StatusBar style="auto" />
