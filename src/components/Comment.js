@@ -4,15 +4,16 @@ import { View, Text, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderTopColor: "#E5E5E5",
     borderBottomColor: "#E5E5E5",
     padding: 15,
   },
   author: {
     fontWeight: "bold",
+    fontSize: 17,
+    color: "#514D47",
   },
+  name: { fontSize: 17, color: "#514D47" },
 });
 
 const Comment = ({ id, name, author }) => {
@@ -20,7 +21,7 @@ const Comment = ({ id, name, author }) => {
     <TouchableOpacity>
       <View style={styles.container}>
         <Text style={styles.author}>{author}</Text>
-        <Text>{name}</Text>
+        <Text style={styles.name}>{name}</Text>
       </View>
     </TouchableOpacity>
   );

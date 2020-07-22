@@ -5,18 +5,21 @@ export default StyleSheet.create({
     backgroundColor: "#fff",
     flex: 1,
   },
-  inputContainer: {
-    justifyContent: "center",
-    flexDirection: "row",
-    marginVertical: 0,
-  },
-  inputField: {
-    width: 300,
-    borderWidth: 1,
-    marginRight: 20,
-    padding: 5,
+  alignCenter: {
+    alignItems: "center",
   },
   name: {
-    fontSize: 30,
+    fontSize: 22,
+  },
+  small: { fontSize: 13 },
+  bold: { fontWeight: "bold" },
+  description: { marginTop: 20, paddingLeft: 15 },
+  commentsTitle: {
+    color: "#72A8BC",
+    borderBottomWidth: 1,
+    borderBottomColor: "#E5E5E5",
+    paddingVertical: 15,
+    fontSize: 13,
+    paddingLeft: 15,
   },
 });

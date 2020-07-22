@@ -28,24 +28,28 @@ const CardScreen = ({ route }) => {
   return (
     <View style={styles.container}>
       <View>
-        <View style={styles.nameContainer}>
+        <View style={styles.alignCenter}>
           <Text style={styles.name}>{card.name}</Text>
         </View>
-        <View>
-          <Text>Author: {card.author};</Text>
+        <View style={styles.alignCenter}>
+          <Text style={styles.small}>{columnName}</Text>
         </View>
-        <View>
+        <View style={styles.alignCenter}>
+          <Text style={styles.small}>
+            Author: <Text style={styles.bold}>{card.author}</Text>
+          </Text>
+        </View>
+        <View style={styles.description}>
           <Text>Desciption: {card.description};</Text>
         </View>
-        <View>
-          <Text>Column: {columnName}</Text>
-        </View>
       </View>
-      <View style={styles.commentsContainer}>
-        <Text>COMMENTS</Text>
-        <ScrollView>{renderComments()}</ScrollView>
+      <View>
+        <Text style={styles.commentsTitle}>COMMENTS</Text>
+        <ScrollView>
+          {renderComments()}
+          <AddComment id={id} />
+        </ScrollView>
       </View>
-      <AddComment id={id} />
     </View>
   );
 };

@@ -8,12 +8,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flexDirection: "row",
     marginVertical: 10,
-    borderWidth: 1,
+    width: 345,
+    paddingLeft: 15,
   },
   inputField: {
+    marginLeft: 10,
     width: 300,
-    marginRight: 20,
     padding: 5,
+    color: "#9C9C9C",
   },
 });
 
