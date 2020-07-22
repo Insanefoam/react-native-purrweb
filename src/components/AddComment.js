@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TextInput, Button } from "react-native";
 import { useDispatch } from "react-redux";
-import { addCard } from "../store/actions";
+import { addComment } from "../store/actions";
 
 const styles = StyleSheet.create({
   inputContainer: {
@@ -17,29 +17,29 @@ const styles = StyleSheet.create({
   },
 });
 
-const AddCard = () => {
-  const [newCard, setNewCard] = useState("");
+const AddComment = ({ id }) => {
+  const [newComment, setNewComment] = useState("");
   const dispatch = useDispatch();
 
-  const addNewCard = () => {
-    if (newCard) {
-      dispatch(addCard(newCard, id, ""));
-      setNewCard("");
+  const addNewComment = () => {
+    if (newComment) {
+      dispatch(addComment(id, newComment, "John Doe"));
+      setNewComment("");
     } else {
-      alert("Слишком короткое имя карточки");
+      alert("Слишком короткий текст комментария");
     }
   };
 
   return (
     <View style={styles.inputContainer}>
-      <Button onPress={addNewCard} title="+" />
+      <Button onPress={addNewComment} title="+" />
       <TextInput
         style={styles.inputField}
-        onChangeText={(text) => setNewCard(text)}
-        value={newCard}
+        onChangeText={(text) => setNewComment(text)}
+        value={newComment}
       />
     </View>
   );
 };
 
-export default AddCard;
+export default AddComment;

@@ -27,7 +27,7 @@ const ColumnScreen = ({ route, navigation }) => {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <AddCard />
       <View style={styles.cardsContainer}>
         <ScrollView>{renderCards()}</ScrollView>

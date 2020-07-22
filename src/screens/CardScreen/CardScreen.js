@@ -1,19 +1,11 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Button,
-  ScrollView,
-  TextInput,
-  Alert,
-} from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { getCard, getComments, getColumnName } from "../../store/selectors";
-import { addComment } from "../../store/actions";
 import styles from "./styles";
+import AddComment from "../../components/AddComment";
+import Comment from "../../components/Comment";
 
 const CardScreen = ({ route }) => {
   const { id } = route.params;
@@ -21,30 +13,21 @@ const CardScreen = ({ route }) => {
   const columnName = useSelector((state) => getColumnName(state, card.columnId));
   const comments = useSelector((state) => getComments(state, id));
   const dispatch = useDispatch();
-  const [newComment, setNewComment] = useState("");
-
-  const addNewComment = () => {
-    if (newComment) {
-      dispatch(addComment(id, newComment, ""));
-      setNewComment("");
-    } else {
-      Alert.alert("Слишком короткий текст комментария");
-    }
-  };
 
   const renderComments = () => {
     return comments.map((comment) => (
-      <TouchableOpacity key={comment.commentId}>
-        <View style={styles.commentContainer}>
-          <Text>{comment.name}</Text>
-        </View>
-      </TouchableOpacity>
+      <Comment
+        id={comment.commentId}
+        name={comment.name}
+        author={comment.author}
+        key={comment.commentId}
+      />
     ));
   };
 
   return (
-    <View>
-      <View style={styles.infoContainer}>
+    <View style={styles.container}>
+      <View>
         <View style={styles.nameContainer}>
           <Text style={styles.name}>{card.name}</Text>
         </View>
@@ -59,16 +42,10 @@ const CardScreen = ({ route }) => {
         </View>
       </View>
       <View style={styles.commentsContainer}>
+        <Text>COMMENTS</Text>
         <ScrollView>{renderComments()}</ScrollView>
       </View>
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.inputField}
-          onChangeText={(text) => setNewComment(text)}
-          value={newComment}
-        />
-        <Button onPress={addNewComment} title="+" />
-      </View>
+      <AddComment id={id} />
     </View>
   );
 };
