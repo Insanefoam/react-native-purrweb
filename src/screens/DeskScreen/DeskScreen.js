@@ -5,8 +5,8 @@ import { View, Button, ScrollView, Text } from "react-native";
 import { Form, Field } from "react-final-form";
 import { TextInput } from "react-native-gesture-handler";
 import { getColumns } from "../../store/selectors";
-import { addColumn, changeColumnTitle } from "../../store/actions";
-import Row from "../../components/Row";
+import { addColumn } from "../../store/actions";
+import ColumnButton from "../../components/ColumnButton";
 import styles from "./styles";
 
 const CustomInput = ({ input, meta, ...rest }) => (
@@ -21,10 +21,9 @@ const DeskScreen = ({ navigation }) => {
 
   const renderColumns = () => {
     return columns.map((column) => (
-      <Row
+      <ColumnButton
         text={column.title}
-        onPress={() => navigation.navigate("Column", { id: column.columnId })}
-        onChangeText={(name) => dispatch(changeColumnTitle(column.columnId, name))}
+        onPress={() => navigation.navigate("ColumnScreen", { id: column.columnId })}
         key={column.columnId}
       />
     ));

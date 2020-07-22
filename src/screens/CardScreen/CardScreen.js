@@ -13,6 +13,7 @@ import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { getCard, getComments, getColumnName } from "../../store/selectors";
 import { addComment } from "../../store/actions";
+import styles from "./styles";
 
 const CardScreen = ({ route }) => {
   const { id } = route.params;

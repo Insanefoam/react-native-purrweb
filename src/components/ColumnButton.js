@@ -16,24 +16,14 @@ const styles = StyleSheet.create({
   text: { fontSize: 17, color: "#514D47", lineHeight: 20 },
 });
 
-// TODO: Autofocus (keyboard show) on longPress
-const Row = ({ text, onPress, onChangeText, commentsCount }) => {
-  const [editable, setEditable] = useState(false);
-
+const ColumnButton = ({ text, onPress }) => {
   return (
-    <TouchableOpacity onPress={onPress} onLongPress={() => setEditable(!editable)}>
+    <TouchableOpacity onPress={onPress}>
       <View style={styles.container}>
-        <TextInput
-          style={styles.text}
-          editable={editable}
-          onEndEditing={() => setEditable(!editable)}
-          onChangeText={(name) => onChangeText(name)}
-        >
-          {text} {commentsCount && `with ${commentsCount} comments`}
-        </TextInput>
+        <Text style={styles.text}>{text}</Text>
       </View>
     </TouchableOpacity>
   );
 };
 
-export default Row;
+export default ColumnButton;

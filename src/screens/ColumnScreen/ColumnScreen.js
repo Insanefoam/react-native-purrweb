@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { View, Button, ScrollView, TextInput, Alert } from "react-native";
+import { View, Button, ScrollView, TextInput, Alert, Text } from "react-native";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { getCards, getCommentsCount } from "../../store/selectors";
 import { addCard, changeCardName } from "../../store/actions";
-import Row from "../../components/Row";
 import styles from "./styles";
+import CardButton from "../../components/CardButton";
 
 const ColumnScreen = ({ route, navigation }) => {
   const { id } = route.params;
@@ -17,11 +17,10 @@ const ColumnScreen = ({ route, navigation }) => {
 
   const renderCards = () => {
     return cards.map((card) => (
-      <Row
+      <CardButton
         text={card.name}
-        // commentsCount={commentsCount(card.cardId)}
-        onPress={() => navigation.navigate("Card", { id: card.cardId })}
-        onChangeText={(name) => dispatch(changeCardName(card.cardId, name))}
+        commentsCount={commentsCount(card.cardId)}
+        onPress={() => navigation.navigate("CardScreen", { id: card.cardId })}
         key={card.cardId}
       />
     ));
