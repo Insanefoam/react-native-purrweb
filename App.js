@@ -3,10 +3,9 @@ import React from "react";
 import { Provider } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Button } from "react-native";
-import Desk from "./src/components/Desk";
-import Column from "./src/components/Column";
-import Card from "./src/components/Card";
+import DeskScreen from "./src/screens/DeskScreen/DeskScreen";
+import ColumnScreen from "./src/screens/ColumnScreen/ColumnScreen";
+import CardScreen from "./src/screens/CardScreen/CardScreen";
 import store from "./src/store/storeConfigure";
 
 const Stack = createStackNavigator();
@@ -24,16 +23,9 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen
-            name="Desk"
-            component={Desk}
-            options={{
-              title: "My Desk",
-              ...headerStyles,
-            }}
-          />
-          <Stack.Screen name="Column" component={Column} />
-          <Stack.Screen name="Card" component={Card} />
+          <Stack.Screen name="DeskScreen" component={DeskScreen} />
+          <Stack.Screen name="ColumnScreen" component={ColumnScreen} />
+          <Stack.Screen name="CardScreen" component={CardScreen} />
         </Stack.Navigator>
       </NavigationContainer>
       <StatusBar style="auto" />

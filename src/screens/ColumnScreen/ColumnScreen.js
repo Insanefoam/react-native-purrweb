@@ -1,38 +1,13 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Button,
-  ScrollView,
-  TextInput,
-  Alert,
-} from "react-native";
+import { View, Button, ScrollView, TextInput, Alert } from "react-native";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
-import { getCards, getCommentsCount } from "../store/selectors";
-import { addCard, changeCardName } from "../store/actions";
-import Row from "./Row";
+import { getCards, getCommentsCount } from "../../store/selectors";
+import { addCard, changeCardName } from "../../store/actions";
+import Row from "../../components/Row";
+import styles from "./styles";
 
-const styles = StyleSheet.create({
-  cardsContainer: {
-    alignItems: "center",
-  },
-  inputContainer: {
-    justifyContent: "center",
-    flexDirection: "row",
-    marginVertical: 10,
-  },
-  inputField: {
-    width: 300,
-    borderWidth: 1,
-    marginRight: 20,
-    padding: 5,
-  },
-});
-
-const Column = ({ route, navigation }) => {
+const ColumnScreen = ({ route, navigation }) => {
   const { id } = route.params;
   const cards = useSelector((state) => getCards(state, id));
 
@@ -78,7 +53,7 @@ const Column = ({ route, navigation }) => {
   );
 };
 
-Column.propTypes = {
+ColumnScreen.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
@@ -89,4 +64,4 @@ Column.propTypes = {
   }).isRequired,
 };
 
-export default Column;
+export default ColumnScreen;

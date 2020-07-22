@@ -17,18 +17,19 @@ const styles = StyleSheet.create({
 });
 
 // TODO: Autofocus (keyboard show) on longPress
-const Row = ({ text, id, onPress, onTextChange }) => {
+const Row = ({ text, onPress, onChangeText, commentsCount }) => {
   const [editable, setEditable] = useState(false);
 
   return (
-    <TouchableOpacity key={id} onPress={onPress} onLongPress={() => setEditable(!editable)}>
+    <TouchableOpacity onPress={onPress} onLongPress={() => setEditable(!editable)}>
       <View style={styles.container}>
         <TextInput
           style={styles.text}
           editable={editable}
           onEndEditing={() => setEditable(!editable)}
+          onChangeText={(name) => onChangeText(name)}
         >
-          {text}
+          {text} {commentsCount && `with ${commentsCount} comments`}
         </TextInput>
       </View>
     </TouchableOpacity>
