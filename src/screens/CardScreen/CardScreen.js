@@ -40,7 +40,8 @@ const CardScreen = ({ route }) => {
           </Text>
         </View>
         <View style={styles.description}>
-          <Text>Desciption: {card.description};</Text>
+          <Text style={styles.descriptionTitle}>DESCRIPTION</Text>
+          <Text style={styles.descriptionText}>{card.description}</Text>
         </View>
       </View>
       <ScrollView>

@@ -13,7 +13,7 @@ export default StyleSheet.create({
   },
   small: { fontSize: 13 },
   bold: { fontWeight: "bold" },
-  description: { marginTop: 20, paddingLeft: 15 },
+  description: { marginTop: 10, paddingLeft: 15 },
   commentsTitle: {
     color: "#72A8BC",
     borderBottomWidth: 1,
@@ -21,5 +21,13 @@ export default StyleSheet.create({
     paddingVertical: 15,
     fontSize: 13,
     paddingLeft: 15,
+  },
+  descriptionTitle: {
+    color: "#72A8BC",
+    paddingVertical: 15,
+    fontSize: 15,
+  },
+  descriptionText: {
+    fontSize: 17,
   },
 });

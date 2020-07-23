@@ -23,8 +23,20 @@ export default function App() {
             component={DeskScreen}
             options={{ headerTitle: () => <DeskScreenHeader />, ...noShadow }}
           />
-          <Stack.Screen name="ColumnScreen" component={ColumnScreen} options={noShadow} />
-          <Stack.Screen name="CardScreen" component={CardScreen} options={noShadow} />
+          <Stack.Screen
+            name="ColumnScreen"
+            component={ColumnScreen}
+            options={{
+              headerTitleStyle: { fontSize: 17, fontWeight: "100" },
+              headerTitleAlign: "center",
+              ...noShadow,
+            }}
+          />
+          <Stack.Screen
+            name="CardScreen"
+            component={CardScreen}
+            options={{ title: "", ...noShadow }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
       <StatusBar style="auto" />

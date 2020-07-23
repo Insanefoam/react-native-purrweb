@@ -2,7 +2,7 @@ import React from "react";
 import { View, ScrollView } from "react-native";
 import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
-import { getCards, getCommentsCount } from "../../store/selectors";
+import { getCards, getCommentsCount, getColumnName } from "../../store/selectors";
 import styles from "./styles";
 import CardButton from "../../components/CardButton";
 import AddCard from "../../components/AddCard";
@@ -10,7 +10,9 @@ import AddCard from "../../components/AddCard";
 const ColumnScreen = ({ route, navigation }) => {
   const { id } = route.params;
   const cards = useSelector((state) => getCards(state, id));
+  const columnName = useSelector((state) => getColumnName(state, id));
 
+  navigation.setOptions({ headerTitle: columnName });
   const renderCards = () => {
     return cards.map((card) => (
       <CardButton
