@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { View, StyleSheet, TextInput, Button } from "react-native";
+import { View, StyleSheet, TextInput, Button, Image } from "react-native";
 import { useDispatch } from "react-redux";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { addComment } from "../store/actions";
 
 const styles = StyleSheet.create({
-  inputContainer: {
+  container: {
     justifyContent: "center",
+    alignItems: "center",
     flexDirection: "row",
     marginVertical: 10,
     width: 345,
@@ -33,13 +35,15 @@ const AddComment = ({ id }) => {
   };
 
   return (
-    <View style={styles.inputContainer}>
-      <Button onPress={addNewComment} title="+" />
+    <View style={styles.container}>
+      <TouchableOpacity onPress={addNewComment}>
+        <Image source={require("../../assets/comment.png")} />
+      </TouchableOpacity>
       <TextInput
         style={styles.inputField}
         onChangeText={(text) => setNewComment(text)}
         value={newComment}
-        placeholder="Add new comment..."
+        placeholder="Add a comment..."
         onSubmitEditing={addNewComment}
       />
     </View>

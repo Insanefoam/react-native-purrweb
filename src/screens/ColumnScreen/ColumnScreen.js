@@ -25,9 +25,9 @@ const ColumnScreen = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
       <AddCard columnId={id} />
-      <View>
-        <ScrollView>{renderCards()}</ScrollView>
-      </View>
+      <ScrollView>
+        <View>{renderCards()}</View>
+      </ScrollView>
     </View>
   );
 };

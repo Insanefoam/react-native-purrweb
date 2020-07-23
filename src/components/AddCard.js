@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import { View, StyleSheet, TextInput, Button } from "react-native";
+import { View, StyleSheet, TextInput, Image } from "react-native";
 import { useDispatch } from "react-redux";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { addCard } from "../store/actions";
 
 const styles = StyleSheet.create({
-  inputContainer: {
+  container: {
     justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 5,
+    paddingLeft: 15,
     flexDirection: "row",
     marginVertical: 15,
     borderWidth: 1,
@@ -34,8 +38,10 @@ const AddCard = ({ columnId }) => {
   };
 
   return (
-    <View style={styles.inputContainer}>
-      <Button onPress={addNewCard} title="+" />
+    <View style={styles.container}>
+      <TouchableOpacity onPress={addNewCard}>
+        <Image source={require("../../assets/plus.png")} />
+      </TouchableOpacity>
       <TextInput
         style={styles.inputField}
         onChangeText={(text) => setNewCard(text)}
