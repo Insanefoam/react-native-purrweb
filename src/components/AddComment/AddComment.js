@@ -1,25 +1,9 @@
 import React, { useState } from "react";
-import { View, StyleSheet, TextInput, Button, Image } from "react-native";
+import { View, TextInput, Image } from "react-native";
 import { useDispatch } from "react-redux";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { addComment } from "../store/actions";
-
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row",
-    marginVertical: 10,
-    width: 345,
-    paddingLeft: 15,
-  },
-  inputField: {
-    marginLeft: 10,
-    width: 300,
-    padding: 5,
-    color: "#9C9C9C",
-  },
-});
+import { addComment } from "../../store/actions";
+import styles from "./styles";
 
 const AddComment = ({ id }) => {
   const [newComment, setNewComment] = useState("");
@@ -37,7 +21,7 @@ const AddComment = ({ id }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={addNewComment}>
-        <Image source={require("../../assets/comment.png")} />
+        <Image source={require("../../../assets/comment.png")} />
       </TouchableOpacity>
       <TextInput
         style={styles.inputField}

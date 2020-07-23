@@ -2,10 +2,10 @@ import React from "react";
 import { View, ScrollView } from "react-native";
 import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
-import { getCards, getCommentsCount, getColumnName } from "../../store/selectors";
+import { getCards, getColumnName } from "../../store/selectors";
 import styles from "./styles";
 import CardButton from "../../components/CardButton";
-import AddCard from "../../components/AddCard";
+import AddCard from "../../components/AddCard/AddCard";
 
 const ColumnScreen = ({ route, navigation }) => {
   const { id } = route.params;
