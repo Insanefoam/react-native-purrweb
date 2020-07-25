@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { View, Text, ScrollView } from "react-native";
 import PropTypes from "prop-types";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { getCard, getComments, getColumnName } from "../../store/selectors";
 import styles from "./styles";
 import AddComment from "../../components/AddComment";
@@ -12,7 +12,6 @@ const CardScreen = ({ route }) => {
   const card = useSelector((state) => getCard(state, id));
   const columnName = useSelector((state) => getColumnName(state, card.columnId));
   const comments = useSelector((state) => getComments(state, id));
-  const dispatch = useDispatch();
 
   const renderComments = () => {
     return comments.map((comment) => (

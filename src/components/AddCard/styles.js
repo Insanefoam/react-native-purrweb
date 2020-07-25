@@ -4,8 +4,8 @@ export default StyleSheet.create({
   container: {
     justifyContent: "center",
     alignItems: "center",
-    paddingVertical: 5,
-    paddingLeft: 15,
+    paddingVertical: 15,
+    paddingLeft: 30,
     flexDirection: "row",
     marginVertical: 15,
     borderWidth: 1,
@@ -15,7 +15,6 @@ export default StyleSheet.create({
   },
   inputField: {
     width: 300,
-    marginRight: 20,
-    padding: 5,
   },
+  button: { paddingRight: 15 },
 });

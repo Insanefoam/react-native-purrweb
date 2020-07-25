@@ -6,13 +6,15 @@ import { getCards, getColumnName } from "../../store/selectors";
 import styles from "./styles";
 import CardButton from "../../components/CardButton";
 import AddCard from "../../components/AddCard/AddCard";
+import Header from "../../components/Header";
 
 const ColumnScreen = ({ route, navigation }) => {
   const { id } = route.params;
   const cards = useSelector((state) => getCards(state, id));
   const columnName = useSelector((state) => getColumnName(state, id));
 
-  navigation.setOptions({ headerTitle: columnName });
+  navigation.setOptions({ headerTitle: () => <Header title={columnName} /> });
+
   const renderCards = () => {
     return cards.map((card) => (
       <CardButton

@@ -25,6 +25,7 @@ const AddComment = ({ id }) => {
       </TouchableOpacity>
       <TextInput
         style={styles.inputField}
+        returnKeyType="go"
         onChangeText={(text) => setNewComment(text)}
         value={newComment}
         placeholder="Add a comment..."

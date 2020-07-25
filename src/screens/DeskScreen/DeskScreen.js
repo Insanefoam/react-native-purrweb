@@ -16,7 +16,6 @@ const CustomInput = ({ input, meta, ...rest }) => (
 
 const DeskScreen = ({ navigation }) => {
   const columns = useSelector(getColumns);
-  const dispatch = useDispatch();
 
   const renderColumns = () => {
     return columns.map((column) => (

@@ -3,39 +3,34 @@ import React from "react";
 import { Provider } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import DeskScreen from "./src/screens/DeskScreen/DeskScreen";
-import ColumnScreen from "./src/screens/ColumnScreen/ColumnScreen";
-import CardScreen from "./src/screens/CardScreen/CardScreen";
+import Header from "./src/components/Header";
+import DeskScreen from "./src/screens/DeskScreen";
+import ColumnScreen from "./src/screens/ColumnScreen";
+import CardScreen from "./src/screens/CardScreen";
+import AddColumn from "./src/components/AddColumn";
 import store from "./src/store/storeConfigure";
-import DeskScreenHeader from "./src/components/DeskScreenHeader";
 
 const Stack = createStackNavigator();
-
-const noShadow = { headerStyle: { elevation: 0 } };
 
 export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{ headerStyle: { elevation: 0, shadowOpacity: 0 } }}>
           <Stack.Screen
             name="DeskScreen"
             component={DeskScreen}
-            options={{ headerTitle: () => <DeskScreenHeader />, ...noShadow }}
-          />
-          <Stack.Screen
-            name="ColumnScreen"
-            component={ColumnScreen}
             options={{
-              headerTitleStyle: { fontSize: 17, fontWeight: "100" },
-              headerTitleAlign: "center",
-              ...noShadow,
+              headerTitle: () => <Header title="My Desk" MyButton={AddColumn} />,
             }}
           />
+          <Stack.Screen name="ColumnScreen" component={ColumnScreen} />
           <Stack.Screen
             name="CardScreen"
             component={CardScreen}
-            options={{ title: "", ...noShadow }}
+            options={{
+              headerTitle: () => <Header title="Card Menu" />,
+            }}
           />
         </Stack.Navigator>
       </NavigationContainer>
