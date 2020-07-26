@@ -17,4 +17,8 @@ export default StyleSheet.create({
     width: 300,
   },
   button: { paddingRight: 15 },
+  error: {
+    color: "red",
+    opacity: 0.5,
+  },
 });
