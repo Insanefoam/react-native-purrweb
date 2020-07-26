@@ -1,21 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { View, ScrollView } from "react-native";
-import { Form, Field } from "react-final-form";
-import { TextInput } from "react-native-gesture-handler";
 import { getColumns } from "../../store/selectors";
+import Header from "../../components/Header";
 import ColumnButton from "../../components/ColumnButton";
+import AddColumn from "../../components/AddColumn";
 import styles from "./styles";
-
-const CustomInput = ({ input, meta, ...rest }) => (
-  <View>
-    <TextInput />
-  </View>
-);
 
 const DeskScreen = ({ navigation }) => {
   const columns = useSelector(getColumns);
+
+  navigation.setOptions({
+    headerTitle: () => (
+      <Header
+        title="My Desk"
+        MyButton={AddColumn}
+        pressHandler={() => navigation.navigate("AddColumnScreen")}
+      />
+    ),
+  });
 
   const renderColumns = () => {
     return columns.map((column) => (
@@ -27,23 +31,11 @@ const DeskScreen = ({ navigation }) => {
     ));
   };
 
-  const onSubmit = (values) => {
-    alert(JSON.stringify(values, 0, 2));
-  };
-
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.columnsContainer}>
         {renderColumns(columns)}
       </ScrollView>
-      <Form
-        onSubmit={onSubmit}
-        render={({ handleSubmit }) => (
-          <View>
-            <Field name="custom" component={CustomInput} va />
-          </View>
-        )}
-      />
     </View>
   );
 };

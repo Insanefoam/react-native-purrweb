@@ -5,11 +5,11 @@ import { useDispatch } from "react-redux";
 import { addColumn } from "../../store/actions";
 import styles from "./styles";
 
-const AddColumn = () => {
+const AddColumn = ({ pressHandler }) => {
   const dispatch = useDispatch();
 
   return (
-    <TouchableOpacity style={styles.buttonContainer} onPress={() => dispatch(addColumn(""))}>
+    <TouchableOpacity style={styles.buttonContainer} onPress={pressHandler}>
       <Image source={require("../../../assets/plus.png")} />
     </TouchableOpacity>
   );
