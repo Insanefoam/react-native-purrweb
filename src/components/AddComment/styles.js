@@ -15,4 +15,9 @@ export default StyleSheet.create({
     padding: 5,
     color: "#9C9C9C",
   },
+  error: {
+    color: "red",
+    opacity: 0.5,
+    fontSize: 13,
+  },
 });

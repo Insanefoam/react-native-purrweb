@@ -1,37 +1,47 @@
 import React, { useState } from "react";
-import { View, TextInput, Image } from "react-native";
+import { View, TextInput, Image, Text } from "react-native";
 import { useDispatch } from "react-redux";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { Form, Field } from "react-final-form";
 import { addComment } from "../../store/actions";
 import styles from "./styles";
 
 const AddComment = ({ id }) => {
-  const [newComment, setNewComment] = useState("");
   const dispatch = useDispatch();
 
-  const addNewComment = () => {
-    if (newComment) {
-      dispatch(addComment(id, newComment, "John Doe"));
-      setNewComment("");
-    } else {
-      alert("Слишком короткий текст комментария");
-    }
+  const submitHandler = ({ comment }, form) => {
+    dispatch(addComment(id, comment, "John Doe"));
+    setTimeout(form.reset);
   };
 
   return (
-    <View style={styles.container}>
-      <TouchableOpacity onPress={addNewComment}>
-        <Image source={require("../../../assets/comment.png")} />
-      </TouchableOpacity>
-      <TextInput
-        style={styles.inputField}
-        returnKeyType="go"
-        onChangeText={(text) => setNewComment(text)}
-        value={newComment}
-        placeholder="Add a comment..."
-        onSubmitEditing={addNewComment}
-      />
-    </View>
+    <Form onSubmit={submitHandler}>
+      {({ handleSubmit }) => (
+        <View style={styles.container}>
+          <TouchableOpacity onPress={handleSubmit}>
+            <Image source={require("../../../assets/comment.png")} />
+          </TouchableOpacity>
+          <Field
+            name="comment"
+            placeholder="Add a comment..."
+            validate={(value) => (value ? undefined : "Comment cannot be empty")}
+          >
+            {({ input, meta, placeholder }) => (
+              <View>
+                <TextInput
+                  style={styles.inputField}
+                  returnKeyType="go"
+                  {...input}
+                  placeholder={(meta.submitFailed && meta.error) || placeholder}
+                  placeholderTextColor={meta.submitFailed ? "red" : "#C7C7CD"}
+                  onSubmitEditing={handleSubmit}
+                />
+              </View>
+            )}
+          </Field>
+        </View>
+      )}
+    </Form>
   );
 };
 
