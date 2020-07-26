@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   container: { flex: 1, backgroundColor: "#fff", alignItems: "center" },
-  title: { fontSize: 17, color: "#514D47", lineHeight: 20, marginBottom: 30 },
+  title: { fontSize: 17, color: "#514D47", lineHeight: 20, marginBottom: 20 },
   input: {
     borderWidth: 1,
     borderRadius: 10,
@@ -23,5 +23,12 @@ export default StyleSheet.create({
     fontSize: 17,
     color: "#fff",
     fontWeight: "bold",
+  },
+  error: {
+    color: "red",
+    opacity: 0.5,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginBottom: 5,
   },
 });
