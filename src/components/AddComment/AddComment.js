@@ -6,11 +6,11 @@ import { Form, Field } from "react-final-form";
 import { addComment } from "../../store/actions";
 import styles from "./styles";
 
-const AddComment = ({ id }) => {
+const AddComment = ({ cardId }) => {
   const dispatch = useDispatch();
 
   const submitHandler = ({ comment }, form) => {
-    dispatch(addComment(id, comment, "John Doe"));
+    dispatch(addComment(cardId, comment, "John Doe"));
     setTimeout(form.reset);
   };
 
@@ -27,16 +27,14 @@ const AddComment = ({ id }) => {
             validate={(value) => (value ? undefined : "Comment cannot be empty")}
           >
             {({ input, meta, placeholder }) => (
-              <View>
-                <TextInput
-                  style={styles.inputField}
-                  returnKeyType="go"
-                  {...input}
-                  placeholder={(meta.submitFailed && meta.error) || placeholder}
-                  placeholderTextColor={meta.submitFailed ? "red" : "#C7C7CD"}
-                  onSubmitEditing={handleSubmit}
-                />
-              </View>
+              <TextInput
+                style={styles.inputField}
+                returnKeyType="go"
+                {...input}
+                placeholder={(meta.submitFailed && meta.error) || placeholder}
+                placeholderTextColor={meta.submitFailed ? "red" : "#C7C7CD"}
+                onSubmitEditing={handleSubmit}
+              />
             )}
           </Field>
         </View>

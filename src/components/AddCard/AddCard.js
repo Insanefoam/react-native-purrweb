@@ -25,19 +25,17 @@ const AddCard = ({ columnId }) => {
             <Field
               name="card"
               placeholder="Add a card..."
-              validate={(value) => (value ? undefined : "Empty card name")}
+              validate={(value) => (value ? undefined : "Card name cannot be empty!")}
             >
               {({ input, placeholder, meta }) => (
-                <View>
-                  <TextInput
-                    style={styles.inputField}
-                    {...input}
-                    placeholder={placeholder}
-                    returnKeyType="go"
-                    onSubmitEditing={handleSubmit}
-                  />
-                  {meta.submitFailed && <Text style={styles.error}>Card name cannot be empty</Text>}
-                </View>
+                <TextInput
+                  style={styles.inputField}
+                  {...input}
+                  placeholder={(meta.submitFailed && meta.error) || placeholder}
+                  placeholderTextColor={meta.submitFailed ? "red" : "#C7C7CD"}
+                  returnKeyType="go"
+                  onSubmitEditing={handleSubmit}
+                />
               )}
             </Field>
           </View>
