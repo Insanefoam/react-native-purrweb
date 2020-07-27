@@ -1,18 +1,24 @@
 import React from "react";
 import { View } from "react-native";
 import { Form, Field } from "react-final-form";
+import axios from "axios";
 import styles from "./styles";
 import SubmitButton from "../../components/SubmitButton";
 import InputField from "../../components/InputField/InputField";
+import { signIn } from "../../api";
 
 const required = (value) => (value ? undefined : "Required field");
 
-const submitHandler = (values, form) => {
-  alert("submit");
-  setTimeout(form.reset);
-};
+const SignInScreen = ({ navigation }) => {
+  const submitHandler = ({ email, password }, form) => {
+    signIn(email, password).then((res) => {
+      if (res === "ok") {
+        setTimeout(form.reset);
+        navigation.navigate("DeskScreen");
+      }
+    });
+  };
 
-const SignInScreen = () => {
   return (
     <Form onSubmit={submitHandler}>
       {({ handleSubmit }) => (

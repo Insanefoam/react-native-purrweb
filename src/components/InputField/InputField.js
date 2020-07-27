@@ -10,6 +10,7 @@ const InputField = ({ input, meta, placeholder }) => {
       {...input}
       placeholder={(meta.submitFailed && meta.error) || placeholder}
       placeholderTextColor={meta.submitFailed ? "red" : "#C7C7CD"}
+      autoCapitalize="none"
     />
   );
 };
