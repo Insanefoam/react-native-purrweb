@@ -4,15 +4,24 @@ import { Form, Field } from "react-final-form";
 import styles from "./styles";
 import SubmitButton from "../../components/SubmitButton";
 import InputField from "../../components/InputField/InputField";
+import { signUp } from "../../api";
 
 const required = (value) => (value ? undefined : "Required field");
 
-const submitHandler = (values, form) => {
-  alert("submit");
-  setTimeout(form.reset);
-};
+const SignUpScreen = ({ navigation }) => {
+  navigation.setOptions({ headerTitle: () => undefined });
 
-const SignUpScreen = () => {
+  const submitHandler = ({ email, name, password }, form) => {
+    signUp(email, name, password).then((res) => {
+      if (res) {
+        setTimeout(form.reset);
+        navigation.navigate("DeskScreen");
+      } else {
+        alert("Account with that email already exists");
+      }
+    });
+  };
+
   return (
     <Form onSubmit={submitHandler}>
       {({ handleSubmit }) => (
@@ -25,7 +34,7 @@ const SignUpScreen = () => {
             validate={required}
             component={InputField}
           />
-          <SubmitButton text="Sign In" onPress={handleSubmit} />
+          <SubmitButton text="Sign Up" onPress={handleSubmit} />
         </View>
       )}
     </Form>

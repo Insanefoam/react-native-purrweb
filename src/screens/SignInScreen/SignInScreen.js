@@ -1,7 +1,6 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import { Form, Field } from "react-final-form";
-import axios from "axios";
 import styles from "./styles";
 import SubmitButton from "../../components/SubmitButton";
 import InputField from "../../components/InputField/InputField";
@@ -10,11 +9,15 @@ import { signIn } from "../../api";
 const required = (value) => (value ? undefined : "Required field");
 
 const SignInScreen = ({ navigation }) => {
+  navigation.setOptions({ headerTitle: () => undefined });
+
   const submitHandler = ({ email, password }, form) => {
     signIn(email, password).then((res) => {
-      if (res === "ok") {
+      if (res) {
         setTimeout(form.reset);
         navigation.navigate("DeskScreen");
+      } else {
+        alert("Invalid email or password");
       }
     });
   };
