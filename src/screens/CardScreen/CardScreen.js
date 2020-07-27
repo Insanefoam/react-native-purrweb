@@ -46,8 +46,8 @@ const CardScreen = ({ route }) => {
       <ScrollView>
         <Text style={styles.commentsTitle}>COMMENTS</Text>
         {renderComments()}
-        <AddComment id={id} />
       </ScrollView>
+      <AddComment cardId={id} />
     </View>
   );
 };

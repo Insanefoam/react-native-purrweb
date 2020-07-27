@@ -2,11 +2,9 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   container: {
-    width: 345,
     paddingVertical: 25,
     borderBottomWidth: 1,
     borderBottomColor: "#E5E5E5",
-    flex: 1,
     flexDirection: "row",
     paddingHorizontal: 15,
   },

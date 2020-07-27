@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { View, TextInput, Image, Text } from "react-native";
+import React from "react";
+import { View, TextInput, Image } from "react-native";
 import { useDispatch } from "react-redux";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Form, Field } from "react-final-form";
