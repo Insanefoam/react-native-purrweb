@@ -9,6 +9,7 @@ const required = (value) => (value ? undefined : "Required field");
 
 const submitHandler = (values, form) => {
   alert("submit");
+  setTimeout(form.reset);
 };
 
 const SignUpScreen = () => {
