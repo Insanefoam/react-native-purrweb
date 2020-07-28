@@ -1,8 +1,4 @@
-import {
-  ADD_COMMENT,
-  DELETE_COMMENT,
-  CHANGE_COMMENT,
-} from "../constants/action_types";
+import { ADD_COMMENT, DELETE_COMMENT, CHANGE_COMMENT } from "../constants/action_types";
 
 export default function comments(state = [], { type, payload }) {
   switch (type) {
@@ -10,19 +6,17 @@ export default function comments(state = [], { type, payload }) {
       return [
         ...state,
         {
-          author: payload.author,
-          cardId: payload.cardId,
-          commentId: Date.now(),
-          name: payload.name,
+          id: payload.id,
+          body: payload.body,
+          created: Date.now().toString(),
+          userId: payload.userId,
         },
       ];
     case DELETE_COMMENT:
-      return state.filter((comment) => comment.commentId !== payload.id);
+      return state.filter((comment) => comment.id !== payload.id);
     case CHANGE_COMMENT:
       return state.map((comment) =>
-        comment.commentId === payload.id
-          ? { ...comment, name: payload.name }
-          : comment
+        comment.id === payload.id ? { ...comment, body: payload.body } : comment
       );
     default:
       return state;

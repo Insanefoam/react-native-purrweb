@@ -4,10 +4,10 @@ export default function columns(state = [], { type, payload }) {
   switch (type) {
     case CHANGE_COLUMN_TITLE:
       return state.map((column) =>
-        column.columnId === payload.id ? { ...column, title: payload.name } : column
+        column.id === payload.id ? { ...column, title: payload.title } : column
       );
     case ADD_COLUMN: {
-      return [...state, { columnId: Date.now(), title: payload.name }];
+      return [...state, { id: Date.now(), title: payload.title }];
     }
     default:
       return state;

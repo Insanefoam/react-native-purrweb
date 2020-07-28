@@ -12,6 +12,7 @@ import styles from "./styles";
 const DeskScreen = ({ navigation }) => {
   const columns = useSelector(getColumns);
   getColumnsAsync().then((res) => console.log(res));
+
   navigation.setOptions({
     headerTitle: () => (
       <Header
@@ -26,8 +27,8 @@ const DeskScreen = ({ navigation }) => {
     return columns.map((column) => (
       <ColumnButton
         text={column.title}
-        onPress={() => navigation.navigate("ColumnScreen", { id: column.columnId })}
-        key={column.columnId}
+        onPress={() => navigation.navigate("ColumnScreen", { id: column.id })}
+        key={column.id}
       />
     ));
   };

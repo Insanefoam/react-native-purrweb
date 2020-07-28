@@ -11,9 +11,9 @@ import {
   INIT_USER,
 } from "../constants/action_types";
 
-export const addCard = (title, description, columndId) => ({
+export const addCard = (title, description, columnId) => ({
   type: ADD_CARD,
-  payload: { title, description, columndId },
+  payload: { title, description, columnId },
 });
 
 export const deleteCard = (id) => ({
@@ -31,9 +31,9 @@ export const changeCardDescription = (id, description) => ({
   payload: { id, description },
 });
 
-export const addComment = (cardId, body, userId) => ({
+export const addComment = (id, cardId, body, userId) => ({
   type: ADD_COMMENT,
-  payload: { cardId, body, userId },
+  payload: { id, cardId, body, userId },
 });
 
 export const deleteComment = (id) => ({

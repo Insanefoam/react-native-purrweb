@@ -10,7 +10,7 @@ const AddComment = ({ cardId }) => {
   const dispatch = useDispatch();
 
   const submitHandler = ({ comment }, form) => {
-    dispatch(addComment(cardId, comment, "John Doe"));
+    dispatch(addComment(Date.now(), cardId, comment, 0));
     setTimeout(form.reset);
   };
 

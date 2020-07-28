@@ -10,7 +10,7 @@ const AddCard = ({ columnId }) => {
   const dispatch = useDispatch();
 
   const submitHandler = ({ card }, form) => {
-    dispatch(addCard(card, columnId, ""));
+    dispatch(addCard(card, "No Description", columnId));
     setTimeout(form.reset);
   };
 

@@ -3,6 +3,7 @@ import {
   DELETE_CARD,
   CHANGE_CARD_NAME,
   CHANGE_CARD_DESCRIPTION,
+  ADD_COMMENT,
 } from "../constants/action_types";
 
 export default function cards(state = [], { type, payload }) {
@@ -11,23 +12,31 @@ export default function cards(state = [], { type, payload }) {
       return [
         ...state,
         {
-          author: payload.author,
-          cardId: Date.now(),
+          id: Date.now(),
+          title: payload.title,
+          description: payload.description,
+          checked: false,
           columnId: payload.columnId,
-          description: "",
-          name: payload.text,
+          commentsIds: [],
         },
       ];
     case DELETE_CARD:
-      return state.filter((card) => card.cardId !== payload.id);
+      return state.filter((card) => card.id !== payload.id);
     case CHANGE_CARD_NAME:
       return state.map((card) =>
-        card.cardId === payload.id ? { ...card, name: payload.name } : card
+        card.id === payload.id ? { ...card, name: payload.title } : card
       );
     case CHANGE_CARD_DESCRIPTION:
       return state.map((card) =>
-        card.cardId === payload.id ? { ...card, description: payload.description } : card
+        card.id === payload.id ? { ...card, description: payload.description } : card
       );
+    case ADD_COMMENT: {
+      return state.map((card) =>
+        card.id === payload.cardId
+          ? { ...card, commentsIds: [...card.commentsIds, payload.id] }
+          : card
+      );
+    }
     default:
       return state;
   }

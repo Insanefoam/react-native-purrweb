@@ -15,12 +15,7 @@ const CardScreen = ({ route }) => {
 
   const renderComments = () => {
     return comments.map((comment) => (
-      <Comment
-        id={comment.commentId}
-        name={comment.name}
-        author={comment.author}
-        key={comment.commentId}
-      />
+      <Comment id={comment.id} name={comment.body} author="John Doe" key={comment.id} />
     ));
   };
 

@@ -18,10 +18,10 @@ const ColumnScreen = ({ route, navigation }) => {
   const renderCards = () => {
     return cards.map((card) => (
       <CardButton
-        text={card.name}
-        id={card.cardId}
-        onPress={() => navigation.navigate("CardScreen", { id: card.cardId })}
-        key={card.cardId}
+        text={card.title}
+        id={card.id}
+        onPress={() => navigation.navigate("CardScreen", { id: card.id })}
+        key={card.id}
       />
     ));
   };
