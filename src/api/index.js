@@ -7,7 +7,7 @@ export const signIn = (email, password) =>
     if (res.data.name === "EntityNotFound") {
       return undefined;
     }
-    axios.defaults.headers.common.bearer = res.data.token;
+    axios.defaults.headers.Authorization = `Bearer ${res.data.token}`;
     return res.data.name;
   });
 
@@ -16,6 +16,8 @@ export const signUp = (email, name, password) =>
     if (res.data.name === "QueryFailedError") {
       return undefined;
     }
-    axios.defaults.headers.common.bearer = res.data.token;
+    axios.defaults.headers.Authorization = `Bearer ${res.data.token}`;
     return res.data.name;
   });
+
+export const getColumnsAsync = () => axios.get("/columns").then((res) => res.data);

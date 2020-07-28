@@ -6,11 +6,12 @@ import { getColumns } from "../../store/selectors";
 import Header from "../../components/Header";
 import ColumnButton from "../../components/ColumnButton";
 import AddColumn from "../../components/AddColumn";
+import { getColumnsAsync } from "../../api/index";
 import styles from "./styles";
 
 const DeskScreen = ({ navigation }) => {
   const columns = useSelector(getColumns);
-
+  getColumnsAsync().then((res) => console.log(res));
   navigation.setOptions({
     headerTitle: () => (
       <Header

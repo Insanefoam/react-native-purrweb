@@ -1,64 +1,71 @@
 const columns = [
   {
-    columnId: 0,
+    id: 0,
     title: "TODO",
+    userId: 0,
   },
   {
-    columnId: 1,
+    id: 1,
     title: "In progress",
+    userId: 0,
   },
   {
-    columnId: 2,
+    id: 2,
     title: "Testing",
+    userId: 0,
   },
   {
-    columnId: 3,
+    id: 3,
     title: "Done",
-  },
-];
-
-const comments = [
-  {
-    author: "John Doe",
-    cardId: 1,
-    commentId: 1,
-    name: "Testing comment 1",
-  },
-  {
-    author: "John Doe",
-    cardId: 2,
-    commentId: 2,
-    name: "Testing comment 2",
-  },
-  {
-    author: "John Doe",
-    cardId: 2,
-    commentId: 3,
-    name: "Testing comment 3",
+    userId: 0,
   },
 ];
 
 const cards = [
   {
-    author: "John Doe",
-    cardId: 1,
+    id: 0,
+    title: "Testing card 1",
+    description: "Testing description 1",
+    checked: true,
     columnId: 0,
-    description: "Mock description 1",
-    name: "Testing card 1",
+    commentsIds: [0, 1],
   },
   {
-    author: "John Doe",
-    cardId: 2,
+    id: 1,
+    title: "Testing card 2",
+    description: "Testing description 1",
+    checked: true,
     columnId: 0,
-    description: "Mock description 1",
-    name: "Testing card 2",
+    commentsIds: [2],
   },
   {
-    author: "John Lennon",
-    cardId: 3,
+    id: 2,
+    title: "Testing card 3",
+    description: "Testing description 1",
+    checked: true,
     columnId: 1,
-    description: "Mock description 2",
-    name: "Testing card 3",
+    commentsIds: [],
+  },
+];
+
+const comments = [
+  {
+    id: 0,
+    body: "Testing comment 1",
+    created: "2020-07-28T05:22:35.317Z",
+    userId: 0,
+  },
+  {
+    id: 1,
+    body: "Testing comment 2",
+    created: "2020-07-28T05:22:35.317Z",
+    userId: 0,
+  },
+  {
+    id: 2,
+    body: "Testing comment 3",
+    created: "2020-07-28T05:22:35.317Z",
+    userId: 0,
   },
 ];
 

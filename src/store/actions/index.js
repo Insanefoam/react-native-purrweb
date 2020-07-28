@@ -11,9 +11,9 @@ import {
   INIT_USER,
 } from "../constants/action_types";
 
-export const addCard = (text, columnId, author) => ({
+export const addCard = (title, description, columndId) => ({
   type: ADD_CARD,
-  payload: { text, columnId, author },
+  payload: { title, description, columndId },
 });
 
 export const deleteCard = (id) => ({
@@ -21,9 +21,9 @@ export const deleteCard = (id) => ({
   payload: { id },
 });
 
-export const changeCardName = (id, name) => ({
+export const changeCardName = (id, title) => ({
   type: CHANGE_CARD_NAME,
-  payload: { id, name },
+  payload: { id, title },
 });
 
 export const changeCardDescription = (id, description) => ({
@@ -31,9 +31,9 @@ export const changeCardDescription = (id, description) => ({
   payload: { id, description },
 });
 
-export const addComment = (cardId, name, author) => ({
+export const addComment = (cardId, body, userId) => ({
   type: ADD_COMMENT,
-  payload: { cardId, name, author },
+  payload: { cardId, body, userId },
 });
 
 export const deleteComment = (id) => ({
@@ -41,19 +41,19 @@ export const deleteComment = (id) => ({
   payload: { id },
 });
 
-export const changeComment = (id, name) => ({
+export const changeComment = (id, body) => ({
   type: CHANGE_COMMENT,
-  payload: { id, name },
+  payload: { id, body },
 });
 
-export const addColumn = (name) => ({
+export const addColumn = (title) => ({
   type: ADD_COLUMN,
-  payload: { name },
+  payload: { title },
 });
 
-export const changeColumnTitle = (id, name) => ({
+export const changeColumnTitle = (id, title) => ({
   type: CHANGE_COLUMN_TITLE,
-  payload: { id, name },
+  payload: { id, title },
 });
 
 export const initUser = (username) => ({
