@@ -25,3 +25,9 @@ export const getColumns = () => axios.get("/columns").then(({ data }) => data);
 export const getCards = () => axios.get("/cards").then(({ data }) => data);
 
 export const getComments = () => axios.get("/comments").then(({ data }) => data);
+
+export const addColumnBackend = (title) =>
+  axios.post("/columns", { title, description: "No Description" }).then((res) => res);
+
+export const addCardBackend = (title, description, checked, column) =>
+  axios.post("/cards", { title, description, checked, column }).then((res) => res);

@@ -5,6 +5,11 @@ export default StyleSheet.create({
     backgroundColor: "#fff",
     flex: 1,
   },
+  loading: {
+    fontSize: 30,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
   alignCenter: {
     alignItems: "center",
   },

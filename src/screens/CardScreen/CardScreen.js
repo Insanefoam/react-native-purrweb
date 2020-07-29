@@ -33,7 +33,7 @@ const CardScreen = ({ route }) => {
   return (
     <View style={styles.container}>
       {loading ? (
-        <Text>Loading...</Text>
+        <Text style={styles.loading}>Loading...</Text>
       ) : (
         <View>
           <View>

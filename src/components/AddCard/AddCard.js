@@ -5,13 +5,18 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { Form, Field } from "react-final-form";
 import { addCard } from "../../store/actions";
 import styles from "./styles";
+import { addCardBackend } from "../../api";
 
 const AddCard = ({ columnId }) => {
   const dispatch = useDispatch();
 
   const submitHandler = ({ card }, form) => {
-    dispatch(addCard(card, "No Description", columnId));
-    setTimeout(form.reset);
+    addCardBackend(card, "No Description", false, columnId)
+      .then((res) => {
+        dispatch(addCard(card, "No Description", columnId));
+        setTimeout(form.reset);
+      })
+      .catch((err) => alert("Oopss something went wrong :("));
   };
 
   return (

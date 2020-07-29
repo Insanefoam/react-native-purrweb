@@ -40,7 +40,7 @@ const ColumnScreen = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
       {loading ? (
-        <Text>Loading...</Text>
+        <Text style={styles.loading}>Loading...</Text>
       ) : (
         <View>
           <AddCard columnId={id} />

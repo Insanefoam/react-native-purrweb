@@ -5,6 +5,7 @@ import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import { Form, Field } from "react-final-form";
 import { addColumn } from "../../store/actions";
 import styles from "./styles";
+import { addColumnBackend } from "../../api";
 
 const AddColumnScreen = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -14,9 +15,13 @@ const AddColumnScreen = ({ navigation }) => {
   });
 
   const handleSubmit = ({ column }, form) => {
-    dispatch(addColumn(column));
-    setTimeout(form.reset);
-    navigation.navigate("DeskScreen");
+    addColumnBackend(column)
+      .then((res) => {
+        dispatch(addColumn(column));
+        setTimeout(form.reset);
+        navigation.navigate("DeskScreen");
+      })
+      .catch((err) => alert("Something went wrong :("));
   };
 
   return (
