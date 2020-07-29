@@ -13,7 +13,7 @@ const ColumnScreen = ({ route, navigation }) => {
   const cards = useSelector((state) => getCards(state, id));
   const columnName = useSelector((state) => getColumnName(state, id));
 
-  navigation.setOptions({ headerTitle: () => <Header title={columnName} /> });
+  navigation.setOptions({ header: () => <Header title={columnName} /> });
 
   const renderCards = () => {
     return cards.map((card) => (

@@ -9,6 +9,7 @@ import {
   ADD_COLUMN,
   CHANGE_COLUMN_TITLE,
   INIT_USER,
+  INIT_COLUMNS,
 } from "../constants/action_types";
 
 export const addCard = (title, description, columnId) => ({
@@ -44,6 +45,11 @@ export const deleteComment = (id) => ({
 export const changeComment = (id, body) => ({
   type: CHANGE_COMMENT,
   payload: { id, body },
+});
+
+export const initColumns = (columns) => ({
+  type: INIT_COLUMNS,
+  payload: { columns },
 });
 
 export const addColumn = (title) => ({

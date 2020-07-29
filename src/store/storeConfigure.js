@@ -1,10 +1,8 @@
 import { createStore } from "redux";
 import rootReducer from "./reducers/rootReducer";
-import mockState from "./mock";
 
 // const preload = JSON.parse(localStorage.getItem("state")) || mockState;
-const preload = mockState;
-const store = createStore(rootReducer, preload);
+const store = createStore(rootReducer);
 
 // TODO: Local storage in RN
 // const saveToLocal = () => {

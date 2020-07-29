@@ -8,6 +8,11 @@ export default StyleSheet.create({
   columnsContainer: {
     alignItems: "center",
   },
+  loading: {
+    fontSize: 30,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
   inputContainer: {
     justifyContent: "center",
     flexDirection: "row",

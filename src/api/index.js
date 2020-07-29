@@ -20,4 +20,4 @@ export const signUp = (email, name, password) =>
     return res.data.name;
   });
 
-export const getColumnsAsync = () => axios.get("/columns").then((res) => res.data);
+export const getColumns = () => axios.get("/columns").then(({ data }) => data);
