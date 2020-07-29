@@ -21,3 +21,7 @@ export const signUp = (email, name, password) =>
   });
 
 export const getColumns = () => axios.get("/columns").then(({ data }) => data);
+
+export const getCards = () => axios.get("/cards").then(({ data }) => data);
+
+export const getComments = () => axios.get("/comments").then(({ data }) => data);

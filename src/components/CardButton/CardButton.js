@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import { useSelector } from "react-redux";
-import { getCommentsCount } from "../../store/selectors";
+import { selectCommentsCount } from "../../store/selectors";
 
 import styles from "./styles";
 
 const CardButton = ({ text, id, onPress }) => {
-  const commentsCount = useSelector((state) => getCommentsCount(state, id));
+  const commentsCount = useSelector((state) => selectCommentsCount(state, id));
 
   return (
     <TouchableOpacity onPress={onPress}>

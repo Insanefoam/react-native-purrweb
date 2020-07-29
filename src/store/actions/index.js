@@ -10,7 +10,14 @@ import {
   CHANGE_COLUMN_TITLE,
   INIT_USER,
   INIT_COLUMNS,
+  INIT_CARDS,
+  INIT_COMMENTS,
 } from "../constants/action_types";
+
+export const initCards = (cards) => ({
+  type: INIT_CARDS,
+  payload: { cards },
+});
 
 export const addCard = (title, description, columnId) => ({
   type: ADD_CARD,
@@ -30,6 +37,11 @@ export const changeCardName = (id, title) => ({
 export const changeCardDescription = (id, description) => ({
   type: CHANGE_CARD_DESCRIPTION,
   payload: { id, description },
+});
+
+export const initComments = (comments) => ({
+  type: INIT_COMMENTS,
+  payload: { comments },
 });
 
 export const addComment = (id, cardId, body, userId) => ({

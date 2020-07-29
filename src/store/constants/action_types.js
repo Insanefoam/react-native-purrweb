@@ -1,14 +1,16 @@
+export const INIT_CARDS = "INIT_CARDS";
 export const ADD_CARD = "ADD_CARD";
 export const DELETE_CARD = "DELETE_CARD";
 export const CHANGE_CARD_NAME = "CHANGE_CARD_NAME";
 export const CHANGE_CARD_DESCRIPTION = "CHANGE_CARD_DESCRIPTION";
 
+export const INIT_COMMENTS = "INIT_COMMENTS";
 export const ADD_COMMENT = "ADD_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
 export const CHANGE_COMMENT = "CHANGE_COMMENT";
 
-export const ADD_COLUMN = "ADD_COLUMN";
 export const INIT_COLUMNS = "INIT_COLUMNS";
+export const ADD_COLUMN = "ADD_COLUMN";
 export const CHANGE_COLUMN_TITLE = "CHANGE_COLUMN_TITLE";
 export const OPEN_CARD_MODAL = "OPEN_CARD_MODAL";
 

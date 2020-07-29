@@ -4,10 +4,13 @@ import {
   CHANGE_CARD_NAME,
   CHANGE_CARD_DESCRIPTION,
   ADD_COMMENT,
+  INIT_CARDS,
 } from "../constants/action_types";
 
 export default function cards(state = [], { type, payload }) {
   switch (type) {
+    case INIT_CARDS:
+      return payload.cards;
     case ADD_CARD:
       return [
         ...state,

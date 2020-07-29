@@ -1,19 +1,30 @@
-import React from "react";
-import { View, ScrollView } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, ScrollView, Text } from "react-native";
 import PropTypes from "prop-types";
-import { useSelector } from "react-redux";
-import { getCards, getColumnName } from "../../store/selectors";
+import { useSelector, useDispatch } from "react-redux";
+import { selectCards, selectColumnName } from "../../store/selectors";
 import styles from "./styles";
 import CardButton from "../../components/CardButton";
 import AddCard from "../../components/AddCard/AddCard";
 import Header from "../../components/Header";
+import { getCards } from "../../api";
+import { initCards } from "../../store/actions";
 
 const ColumnScreen = ({ route, navigation }) => {
   const { id } = route.params;
-  const cards = useSelector((state) => getCards(state, id));
-  const columnName = useSelector((state) => getColumnName(state, id));
+  const [loading, setLoading] = useState(true);
+  const cards = useSelector((state) => selectCards(state, id));
+  const columnName = useSelector((state) => selectColumnName(state, id));
+  const dispatch = useDispatch();
 
-  navigation.setOptions({ header: () => <Header title={columnName} /> });
+  navigation.setOptions({ headerTitle: () => <Header title={columnName} /> });
+
+  useEffect(() => {
+    getCards().then((res) => {
+      setLoading(false);
+      dispatch(initCards(res));
+    });
+  }, []);
 
   const renderCards = () => {
     return cards.map((card) => (
@@ -28,10 +39,16 @@ const ColumnScreen = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <AddCard columnId={id} />
-      <ScrollView>
-        <View>{renderCards()}</View>
-      </ScrollView>
+      {loading ? (
+        <Text>Loading...</Text>
+      ) : (
+        <View>
+          <AddCard columnId={id} />
+          <ScrollView>
+            <View>{renderCards()}</View>
+          </ScrollView>
+        </View>
+      )}
     </View>
   );
 };

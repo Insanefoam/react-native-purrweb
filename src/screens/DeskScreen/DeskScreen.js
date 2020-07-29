@@ -30,7 +30,7 @@ const DeskScreen = ({ navigation }) => {
       setLoading(false);
       dispatch(initColumns(res));
     });
-  });
+  }, []);
 
   const renderColumns = () => {
     return columns.map((column) => (
