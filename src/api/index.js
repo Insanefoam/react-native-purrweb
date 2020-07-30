@@ -31,6 +31,9 @@ export const addColumnBackend = (title) =>
 
 export const deleteColumnBackend = (id) => axios.delete(`/columns/${id}`).then((res) => res);
 
+export const changeColumnBackend = (id, title) =>
+  axios.put(`/columns/${id}`, { title }).then((res) => res);
+
 export const addCardBackend = (title, description, checked, column) =>
   axios.post("/cards", { title, description, checked, column }).then((res) => res);
 

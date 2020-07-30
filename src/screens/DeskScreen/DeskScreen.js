@@ -37,7 +37,8 @@ const DeskScreen = ({ navigation }) => {
       <ColumnButton
         id={column.id}
         text={column.title}
-        onPress={() => navigation.navigate("ColumnScreen", { id: column.id })}
+        navigateColumn={() => navigation.navigate("ColumnScreen", { id: column.id })}
+        navigateChangeColumn={() => navigation.navigate("ChangeColumnScreen", { id: column.id })}
         key={column.id}
       />
     ));

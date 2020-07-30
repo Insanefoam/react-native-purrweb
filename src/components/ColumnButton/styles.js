@@ -16,4 +16,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   text: { fontSize: 17, color: "#514D47", lineHeight: 20 },
+  imageContainer: {
+    marginLeft: 15,
+  },
 });

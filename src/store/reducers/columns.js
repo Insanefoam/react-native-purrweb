@@ -14,7 +14,7 @@ export default function columns(state = [], { type, payload }) {
         column.id === payload.id ? { ...column, title: payload.title } : column
       );
     case ADD_COLUMN:
-      return [...state, { id: Date.now(), title: payload.title }];
+      return [...state, { id: payload.id, title: payload.title }];
     case DELETE_COLUMN:
       return state.filter((column) => column.id !== payload.id);
     default:

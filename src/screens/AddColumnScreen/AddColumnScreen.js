@@ -6,6 +6,7 @@ import { Form, Field } from "react-final-form";
 import { addColumn } from "../../store/actions";
 import styles from "./styles";
 import { addColumnBackend } from "../../api";
+import SubmitButton from "../../components/SubmitButton";
 
 const AddColumnScreen = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -16,8 +17,8 @@ const AddColumnScreen = ({ navigation }) => {
 
   const handleSubmit = ({ column }, form) => {
     addColumnBackend(column)
-      .then((res) => {
-        dispatch(addColumn(column));
+      .then(({ data }) => {
+        dispatch(addColumn(data.id, column));
         setTimeout(form.reset);
         navigation.navigate("DeskScreen");
       })
@@ -45,11 +46,7 @@ const AddColumnScreen = ({ navigation }) => {
               </View>
             )}
           </Field>
-          <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-            <View>
-              <Text style={styles.buttonText}>SUBMIT</Text>
-            </View>
-          </TouchableOpacity>
+          <SubmitButton text="SUBMIT" onPress={handleSubmit} />
         </View>
       )}
     </Form>
