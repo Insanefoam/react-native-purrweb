@@ -14,7 +14,7 @@ const AddComment = ({ cardId }) => {
   const submitHandler = ({ comment }, form) => {
     addCommentBackend(comment, cardId)
       .then((res) => {
-        dispatch(addComment(Date.now(), cardId, comment, 0));
+        dispatch(addComment(res.data.id, cardId, comment, 0));
         setTimeout(form.reset);
       })
       .catch((err) => alert("Oops something went wrong :("));

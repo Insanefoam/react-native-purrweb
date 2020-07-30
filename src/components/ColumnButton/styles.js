@@ -7,9 +7,13 @@ export default StyleSheet.create({
     borderColor: "#E5E5E5",
     borderRadius: 4,
     justifyContent: "center",
-    paddingLeft: 15,
+    paddingHorizontal: 15,
     paddingVertical: 20,
     marginTop: 10,
+    flexDirection: "row",
+  },
+  textContainer: {
+    flex: 1,
   },
   text: { fontSize: 17, color: "#514D47", lineHeight: 20 },
 });

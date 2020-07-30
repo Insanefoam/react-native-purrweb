@@ -1,6 +1,5 @@
 import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { Image } from "react-native";
 import { useDispatch } from "react-redux";
 import Plus from "../../../assets/plus.svg";
 import styles from "./styles";

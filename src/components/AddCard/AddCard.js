@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { View, TextInput, Image, Text } from "react-native";
+import React from "react";
+import { View, TextInput } from "react-native";
 import { useDispatch } from "react-redux";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Form, Field } from "react-final-form";
 import { addCard } from "../../store/actions";
+import Plus from "../../../assets/plus.svg";
 import styles from "./styles";
 import { addCardBackend } from "../../api";
 
@@ -24,9 +25,9 @@ const AddCard = ({ columnId }) => {
       {({ handleSubmit }) => (
         <View>
           <View style={styles.container}>
-            {/* <TouchableOpacity onPress={handleSubmit} style={styles.button}>
-              <Image source={require("../../../assets/plus.png")} />
-            </TouchableOpacity> */}
+            <TouchableOpacity onPress={handleSubmit} style={styles.button}>
+              <Plus width={15} height={15} />
+            </TouchableOpacity>
             <Field
               name="card"
               placeholder="Add a card..."

@@ -35,6 +35,7 @@ const DeskScreen = ({ navigation }) => {
   const renderColumns = () => {
     return columns.map((column) => (
       <ColumnButton
+        id={column.id}
         text={column.title}
         onPress={() => navigation.navigate("ColumnScreen", { id: column.id })}
         key={column.id}

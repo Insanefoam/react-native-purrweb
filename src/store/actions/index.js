@@ -9,13 +9,14 @@ import {
   ADD_COLUMN,
   CHANGE_COLUMN_TITLE,
   INIT_USER,
-  INIT_COLUMNS,
-  INIT_CARDS,
-  INIT_COMMENTS,
+  SET_COLUMNS,
+  SET_CARDS,
+  SET_COMMENTS,
+  DELETE_COLUMN,
 } from "../constants/action_types";
 
 export const setCards = (cards) => ({
-  type: INIT_CARDS,
+  type: SET_CARDS,
   payload: { cards },
 });
 
@@ -40,7 +41,7 @@ export const changeCardDescription = (id, description) => ({
 });
 
 export const setComments = (comments) => ({
-  type: INIT_COMMENTS,
+  type: SET_COMMENTS,
   payload: { comments },
 });
 
@@ -60,13 +61,18 @@ export const changeComment = (id, body) => ({
 });
 
 export const setColumns = (columns) => ({
-  type: INIT_COLUMNS,
+  type: SET_COLUMNS,
   payload: { columns },
 });
 
 export const addColumn = (title) => ({
   type: ADD_COLUMN,
   payload: { title },
+});
+
+export const deleteColumn = (id) => ({
+  type: DELETE_COLUMN,
+  payload: { id },
 });
 
 export const changeColumnTitle = (id, title) => ({

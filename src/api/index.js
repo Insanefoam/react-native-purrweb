@@ -29,8 +29,12 @@ export const getComments = () => axios.get("/comments").then(({ data }) => data)
 export const addColumnBackend = (title) =>
   axios.post("/columns", { title, description: "No Description" }).then((res) => res);
 
+export const deleteColumnBackend = (id) => axios.delete(`/columns/${id}`).then((res) => res);
+
 export const addCardBackend = (title, description, checked, column) =>
   axios.post("/cards", { title, description, checked, column }).then((res) => res);
 
 export const addCommentBackend = (body, cardId) =>
   axios.post(`/cards/${cardId}/comments`, { body }).then((res) => res);
+
+export const deleteCommentBackend = (id) => axios.delete(`/comments/${id}`).then((res) => res);
