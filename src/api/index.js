@@ -31,3 +31,6 @@ export const addColumnBackend = (title) =>
 
 export const addCardBackend = (title, description, checked, column) =>
   axios.post("/cards", { title, description, checked, column }).then((res) => res);
+
+export const addCommentBackend = (body, cardId) =>
+  axios.post(`/cards/${cardId}/comments`, { body }).then((res) => res);

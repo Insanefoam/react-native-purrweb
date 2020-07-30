@@ -26,6 +26,7 @@ const SignInScreen = ({ navigation }) => {
     <Form onSubmit={submitHandler}>
       {({ handleSubmit }) => (
         <View style={styles.container}>
+          <Text style={styles.title}>Trello</Text>
           <Field name="email" placeholder="E-mail" validate={required} component={InputField} />
           <Field
             name="password"

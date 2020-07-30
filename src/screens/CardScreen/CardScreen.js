@@ -7,7 +7,7 @@ import { getComments } from "../../api";
 import styles from "./styles";
 import AddComment from "../../components/AddComment";
 import Comment from "../../components/Comment";
-import { initComments } from "../../store/actions";
+import { setComments } from "../../store/actions";
 
 const CardScreen = ({ route }) => {
   const { id } = route.params;
@@ -20,7 +20,7 @@ const CardScreen = ({ route }) => {
   useEffect(() => {
     getComments().then((res) => {
       setLoading(false);
-      dispatch(initComments(res));
+      dispatch(setComments(res));
     });
   }, []);
 
@@ -35,10 +35,10 @@ const CardScreen = ({ route }) => {
       {loading ? (
         <Text style={styles.loading}>Loading...</Text>
       ) : (
-        <View>
+        <ScrollView>
           <View>
             <View style={styles.alignCenter}>
-              <Text style={styles.name}>{card.name}</Text>
+              <Text style={styles.name}>{card.title}</Text>
             </View>
             <View style={styles.alignCenter}>
               <Text style={styles.small}>{columnName}</Text>
@@ -58,7 +58,7 @@ const CardScreen = ({ route }) => {
             {renderComments()}
           </ScrollView>
           <AddComment cardId={id} />
-        </View>
+        </ScrollView>
       )}
     </View>
   );

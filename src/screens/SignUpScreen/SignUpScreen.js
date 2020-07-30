@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import { Form, Field } from "react-final-form";
 import styles from "./styles";
 import SubmitButton from "../../components/SubmitButton";
@@ -26,6 +26,7 @@ const SignUpScreen = ({ navigation }) => {
     <Form onSubmit={submitHandler}>
       {({ handleSubmit }) => (
         <View style={styles.container}>
+          <Text style={styles.title}>Trello</Text>
           <Field name="name" placeholder="Name" validate={required} component={InputField} />
           <Field name="email" placeholder="E-mail" validate={required} component={InputField} />
           <Field

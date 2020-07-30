@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import { useSelector } from "react-redux";
+import Comment from "../../../assets/comment.svg";
 import { selectCommentsCount } from "../../store/selectors";
 
 import styles from "./styles";
@@ -13,7 +14,7 @@ const CardButton = ({ text, id, onPress }) => {
       <View style={styles.container}>
         <Text style={styles.text}>{text}</Text>
         <View style={styles.commentsContainer}>
-          <Image source={require("../../../assets/comment.png")} style={styles.image} />
+          <Comment width={20} height={20} style={styles.image} />
           <Text>{commentsCount}</Text>
         </View>
       </View>

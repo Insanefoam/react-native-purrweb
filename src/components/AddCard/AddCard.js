@@ -24,9 +24,9 @@ const AddCard = ({ columnId }) => {
       {({ handleSubmit }) => (
         <View>
           <View style={styles.container}>
-            <TouchableOpacity onPress={handleSubmit} style={styles.button}>
+            {/* <TouchableOpacity onPress={handleSubmit} style={styles.button}>
               <Image source={require("../../../assets/plus.png")} />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             <Field
               name="card"
               placeholder="Add a card..."

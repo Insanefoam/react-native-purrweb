@@ -14,7 +14,7 @@ import {
   INIT_COMMENTS,
 } from "../constants/action_types";
 
-export const initCards = (cards) => ({
+export const setCards = (cards) => ({
   type: INIT_CARDS,
   payload: { cards },
 });
@@ -39,7 +39,7 @@ export const changeCardDescription = (id, description) => ({
   payload: { id, description },
 });
 
-export const initComments = (comments) => ({
+export const setComments = (comments) => ({
   type: INIT_COMMENTS,
   payload: { comments },
 });
@@ -59,7 +59,7 @@ export const changeComment = (id, body) => ({
   payload: { id, body },
 });
 
-export const initColumns = (columns) => ({
+export const setColumns = (columns) => ({
   type: INIT_COLUMNS,
   payload: { columns },
 });

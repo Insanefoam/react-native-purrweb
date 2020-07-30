@@ -5,13 +5,19 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { Form, Field } from "react-final-form";
 import { addComment } from "../../store/actions";
 import styles from "./styles";
+import Comment from "../../../assets/comment.svg";
+import { addCommentBackend } from "../../api";
 
 const AddComment = ({ cardId }) => {
   const dispatch = useDispatch();
 
   const submitHandler = ({ comment }, form) => {
-    dispatch(addComment(Date.now(), cardId, comment, 0));
-    setTimeout(form.reset);
+    addCommentBackend(comment, cardId)
+      .then((res) => {
+        dispatch(addComment(Date.now(), cardId, comment, 0));
+        setTimeout(form.reset);
+      })
+      .catch((err) => alert("Oops something went wrong :("));
   };
 
   return (
@@ -19,7 +25,7 @@ const AddComment = ({ cardId }) => {
       {({ handleSubmit }) => (
         <View style={styles.container}>
           <TouchableOpacity onPress={handleSubmit}>
-            <Image source={require("../../../assets/comment.png")} />
+            <Comment width={20} height={20} />
           </TouchableOpacity>
           <Field
             name="comment"

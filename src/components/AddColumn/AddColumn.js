@@ -2,7 +2,7 @@ import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Image } from "react-native";
 import { useDispatch } from "react-redux";
-import { addColumn } from "../../store/actions";
+import Plus from "../../../assets/plus.svg";
 import styles from "./styles";
 
 const AddColumn = ({ pressHandler }) => {
@@ -10,7 +10,7 @@ const AddColumn = ({ pressHandler }) => {
 
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={pressHandler}>
-      <Image source={require("../../../assets/plus.png")} />
+      <Plus width={15} height={15} />
     </TouchableOpacity>
   );
 };

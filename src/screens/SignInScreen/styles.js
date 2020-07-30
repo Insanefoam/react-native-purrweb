@@ -4,7 +4,12 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+    justifyContent: "center",
     alignItems: "center",
-    paddingTop: 50,
+  },
+  title: {
+    fontSize: 30,
+    fontWeight: "bold",
+    marginBottom: 30,
   },
 });

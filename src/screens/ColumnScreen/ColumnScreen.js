@@ -8,7 +8,7 @@ import CardButton from "../../components/CardButton";
 import AddCard from "../../components/AddCard/AddCard";
 import Header from "../../components/Header";
 import { getCards } from "../../api";
-import { initCards } from "../../store/actions";
+import { setCards } from "../../store/actions";
 
 const ColumnScreen = ({ route, navigation }) => {
   const { id } = route.params;
@@ -22,7 +22,7 @@ const ColumnScreen = ({ route, navigation }) => {
   useEffect(() => {
     getCards().then((res) => {
       setLoading(false);
-      dispatch(initCards(res));
+      dispatch(setCards(res));
     });
   }, []);
 

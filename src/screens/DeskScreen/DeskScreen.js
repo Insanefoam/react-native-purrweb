@@ -8,7 +8,7 @@ import ColumnButton from "../../components/ColumnButton";
 import AddColumn from "../../components/AddColumn";
 import styles from "./styles";
 import { getColumns } from "../../api";
-import { initColumns } from "../../store/actions";
+import { setColumns } from "../../store/actions";
 
 const DeskScreen = ({ navigation }) => {
   const [loading, setLoading] = useState(true);
@@ -28,7 +28,7 @@ const DeskScreen = ({ navigation }) => {
   useEffect(() => {
     getColumns().then((res) => {
       setLoading(false);
-      dispatch(initColumns(res));
+      dispatch(setColumns(res));
     });
   }, []);
 
