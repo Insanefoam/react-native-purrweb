@@ -44,7 +44,9 @@ const ColumnScreen = ({ route, navigation }) => {
         <Text style={styles.loading}>Loading...</Text>
       ) : (
         <View>
-          <AddCard columnId={id} />
+          <View style={styles.inputContainer}>
+            <AddCard columnId={id} />
+          </View>
           <ScrollView>
             <View>{renderCards()}</View>
           </ScrollView>

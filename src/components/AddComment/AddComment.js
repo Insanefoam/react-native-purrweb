@@ -1,6 +1,6 @@
 import React from "react";
 import { View, TextInput, Image } from "react-native";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Form, Field } from "react-final-form";
 import { addComment } from "../../store/actions";

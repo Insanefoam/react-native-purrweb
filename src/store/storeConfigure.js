@@ -1,14 +1,15 @@
 import { createStore } from "redux";
+import { AsyncStorage } from "react-native";
+import { persistStore, persistReducer } from "redux-persist";
 import rootReducer from "./reducers/rootReducer";
 
-// const preload = JSON.parse(localStorage.getItem("state")) || mockState;
-const store = createStore(rootReducer);
+const persistConfig = {
+  key: "root",
+  storage: AsyncStorage,
+  whitelist: ["auth"],
+};
 
-// TODO: Local storage in RN
-// const saveToLocal = () => {
-//   const state = store.getState();
-//   localStorage.setItem("state", JSON.stringify(state));
-// };
-// store.subscribe(saveToLocal);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export default store;
+export const store = createStore(persistedReducer);
+export const persistor = persistStore(store);

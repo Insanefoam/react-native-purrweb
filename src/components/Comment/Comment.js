@@ -7,7 +7,7 @@ import styles from "./styles";
 import { deleteCommentBackend } from "../../api";
 import { deleteComment } from "../../store/actions";
 
-const Comment = ({ id, name, author }) => {
+const Comment = ({ id, name, author = "John Doe" }) => {
   const dispatch = useDispatch();
 
   const handlePress = () => {

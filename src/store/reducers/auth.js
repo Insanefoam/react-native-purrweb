@@ -1,8 +1,8 @@
 import { INIT_USER } from "../constants/action_types";
 
-export default function auth(state = { username: "" }, { type, payload }) {
+export default function auth(state = { name: "", token: "" }, { type, payload }) {
   if (type === INIT_USER) {
-    return { username: payload.username };
+    return { name: payload.name, token: payload.token };
   }
   return state;
 }

@@ -45,7 +45,7 @@ export const setComments = (comments) => ({
   payload: { comments },
 });
 
-export const addComment = (id, cardId, body, userId) => ({
+export const addComment = (id, cardId, body, userId, author) => ({
   type: ADD_COMMENT,
   payload: { id, cardId, body, userId },
 });
@@ -80,7 +80,7 @@ export const changeColumnTitle = (id, title) => ({
   payload: { id, title },
 });
 
-export const initUser = (username) => ({
+export const initUser = (name, token) => ({
   type: INIT_USER,
-  payload: { username },
+  payload: { name, token },
 });

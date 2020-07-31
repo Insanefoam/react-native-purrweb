@@ -5,6 +5,7 @@ export default StyleSheet.create({
     backgroundColor: "#AC5253",
     justifyContent: "center",
     padding: 20,
+    flex: 1,
   },
   text: {
     color: "#fff",
