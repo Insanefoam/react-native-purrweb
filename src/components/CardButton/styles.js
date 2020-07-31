@@ -8,7 +8,7 @@ export default StyleSheet.create({
     flexDirection: "row",
     paddingHorizontal: 15,
   },
-  text: { fontSize: 17, color: "#514D47", lineHeight: 20 },
+  text: { fontSize: 17, color: "#514D47", lineHeight: 20, marginRight: 20 },
   commentsContainer: { flex: 1, flexDirection: "row", justifyContent: "flex-end" },
   image: { marginRight: 10 },
 });

@@ -12,6 +12,7 @@ import AuthScreen from "./src/screens/AuthScreen";
 import SignUpScreen from "./src/screens/SignUpScreen";
 import SignInScreen from "./src/screens/SignInScreen";
 import ChangeColumnScreen from "./src/screens/ChangeColumnScreen";
+import ChangeCardScreen from "./src/screens/ChangeCardScreen/ChangeCardScreen";
 
 const Stack = createStackNavigator();
 
@@ -38,6 +39,7 @@ export default function App() {
           />
           <Stack.Screen name="AddColumnScreen" component={AddColumnScreen} />
           <Stack.Screen name="ChangeColumnScreen" component={ChangeColumnScreen} />
+          <Stack.Screen name="ChangeCardScreen" component={ChangeCardScreen} />
         </Stack.Navigator>
       </NavigationContainer>
       <StatusBar style="auto" />

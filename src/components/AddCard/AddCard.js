@@ -14,7 +14,7 @@ const AddCard = ({ columnId }) => {
   const submitHandler = ({ card }, form) => {
     addCardBackend(card, "No Description", false, columnId)
       .then((res) => {
-        dispatch(addCard(card, "No Description", columnId));
+        dispatch(addCard(res.data.id, card, "No Description", columnId));
         setTimeout(form.reset);
       })
       .catch((err) => alert("Oopss something went wrong :("));

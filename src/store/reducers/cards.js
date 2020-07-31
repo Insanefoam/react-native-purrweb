@@ -4,19 +4,18 @@ import {
   CHANGE_CARD_NAME,
   CHANGE_CARD_DESCRIPTION,
   ADD_COMMENT,
-  INIT_CARDS,
-  DELETE_COMMENT,
+  SET_CARDS,
 } from "../constants/action_types";
 
 export default function cards(state = [], { type, payload }) {
   switch (type) {
-    case INIT_CARDS:
+    case SET_CARDS:
       return payload.cards;
     case ADD_CARD:
       return [
         ...state,
         {
-          id: Date.now(),
+          id: payload.id,
           title: payload.title,
           description: payload.description,
           checked: false,
@@ -28,7 +27,7 @@ export default function cards(state = [], { type, payload }) {
       return state.filter((card) => card.id !== payload.id);
     case CHANGE_CARD_NAME:
       return state.map((card) =>
-        card.id === payload.id ? { ...card, name: payload.title } : card
+        card.id === payload.id ? { ...card, title: payload.title } : card
       );
     case CHANGE_CARD_DESCRIPTION:
       return state.map((card) =>

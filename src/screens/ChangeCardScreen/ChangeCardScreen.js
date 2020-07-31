@@ -2,29 +2,29 @@ import React from "react";
 import { View, Text } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { Form, Field } from "react-final-form";
-import { selectColumnName } from "../../store/selectors";
+import { selectCard } from "../../store/selectors";
 import SubmitButton from "../../components/SubmitButton";
 import InputField from "../../components/InputField/InputField";
 import styles from "./styles";
-import { changeColumnBackend } from "../../api";
-import { changeColumnTitle } from "../../store/actions";
+import { changeCardBackend } from "../../api";
+import { changeCardName } from "../../store/actions";
 
 const required = (value) => (value ? undefined : "Required field");
 
-const ChangeColumnScreen = ({ route, navigation }) => {
+const ChangeCardScreen = ({ route, navigation }) => {
   const { id } = route.params;
-  const columnName = useSelector((state) => selectColumnName(state, id));
+  const cardName = useSelector((state) => selectCard(state, id)).title;
   const dispatch = useDispatch();
 
   navigation.setOptions({
     headerTitle: () => undefined,
   });
 
-  const submitHandler = ({ column }, form) => {
-    changeColumnBackend(id, column).then((res) => {
-      dispatch(changeColumnTitle(id, column));
+  const submitHandler = ({ card }, form) => {
+    changeCardBackend(id, card).then((res) => {
+      dispatch(changeCardName(id, card));
       setTimeout(form.reset);
-      navigation.navigate("DeskScreen");
+      navigation.navigate("ColumnScreen");
     });
   };
 
@@ -32,14 +32,9 @@ const ChangeColumnScreen = ({ route, navigation }) => {
     <Form onSubmit={submitHandler}>
       {({ handleSubmit }) => (
         <View style={styles.container}>
-          <Text style={styles.title}>Enter new name for column:</Text>
+          <Text style={styles.title}>Enter new name for card:</Text>
           <View style={styles.input}>
-            <Field
-              name="column"
-              defaultValue={columnName}
-              validate={required}
-              component={InputField}
-            />
+            <Field name="card" defaultValue={cardName} validate={required} component={InputField} />
           </View>
           <SubmitButton text="SUBMIT" onPress={handleSubmit} />
         </View>
@@ -48,4 +43,4 @@ const ChangeColumnScreen = ({ route, navigation }) => {
   );
 };
 
-export default ChangeColumnScreen;
+export default ChangeCardScreen;

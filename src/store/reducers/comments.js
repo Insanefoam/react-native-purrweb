@@ -2,12 +2,12 @@ import {
   ADD_COMMENT,
   DELETE_COMMENT,
   CHANGE_COMMENT,
-  INIT_COMMENTS,
+  SET_COMMENTS,
 } from "../constants/action_types";
 
 export default function comments(state = [], { type, payload }) {
   switch (type) {
-    case INIT_COMMENTS:
+    case SET_COMMENTS:
       return payload.comments;
     case ADD_COMMENT:
       return [

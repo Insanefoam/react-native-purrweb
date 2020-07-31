@@ -12,4 +12,10 @@ export default StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 30,
   },
+  email: {
+    marginBottom: 5,
+  },
+  password: {
+    marginBottom: 15,
+  },
 });

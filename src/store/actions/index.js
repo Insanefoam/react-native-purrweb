@@ -20,9 +20,9 @@ export const setCards = (cards) => ({
   payload: { cards },
 });
 
-export const addCard = (title, description, columnId) => ({
+export const addCard = (id, title, description, columnId) => ({
   type: ADD_CARD,
-  payload: { title, description, columnId },
+  payload: { id, title, description, columnId },
 });
 
 export const deleteCard = (id) => ({

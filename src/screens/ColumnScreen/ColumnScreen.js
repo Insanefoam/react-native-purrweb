@@ -31,7 +31,8 @@ const ColumnScreen = ({ route, navigation }) => {
       <CardButton
         text={card.title}
         id={card.id}
-        onPress={() => navigation.navigate("CardScreen", { id: card.id })}
+        navigateCard={() => navigation.navigate("CardScreen", { id: card.id })}
+        navigateChangeCard={() => navigation.navigate("ChangeCardScreen", { id: card.id })}
         key={card.id}
       />
     ));

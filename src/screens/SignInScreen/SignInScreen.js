@@ -27,13 +27,17 @@ const SignInScreen = ({ navigation }) => {
       {({ handleSubmit }) => (
         <View style={styles.container}>
           <Text style={styles.title}>Trello</Text>
-          <Field name="email" placeholder="E-mail" validate={required} component={InputField} />
-          <Field
-            name="password"
-            placeholder="Password"
-            validate={required}
-            component={InputField}
-          />
+          <View style={styles.email}>
+            <Field name="email" placeholder="E-mail" validate={required} component={InputField} />
+          </View>
+          <View style={styles.password}>
+            <Field
+              name="password"
+              placeholder="Password"
+              validate={required}
+              component={InputField}
+            />
+          </View>
           <SubmitButton text="Sign In" onPress={handleSubmit} />
         </View>
       )}

@@ -3,7 +3,7 @@ import axios from "axios";
 axios.defaults.baseURL = "https://trello-purrweb.herokuapp.com";
 
 export const signIn = (email, password) =>
-  axios.post("/auth/sign-in", { email, password }).then((res) => {
+  axios.post("/auth/sign-in", { email: email.trim(), password: password.trim() }).then((res) => {
     if (res.data.name === "EntityNotFound") {
       return undefined;
     }
@@ -12,13 +12,15 @@ export const signIn = (email, password) =>
   });
 
 export const signUp = (email, name, password) =>
-  axios.post("auth/sign-up", { email, name, password }).then((res) => {
-    if (res.data.name === "QueryFailedError") {
-      return undefined;
-    }
-    axios.defaults.headers.Authorization = `Bearer ${res.data.token}`;
-    return res.data.name;
-  });
+  axios
+    .post("auth/sign-up", { email: email.trim(), name: name.trim(), password: password.trim() })
+    .then((res) => {
+      if (res.data.name === "QueryFailedError") {
+        return undefined;
+      }
+      axios.defaults.headers.Authorization = `Bearer ${res.data.token}`;
+      return res.data.name;
+    });
 
 export const getColumns = () => axios.get("/columns").then(({ data }) => data);
 
@@ -36,6 +38,11 @@ export const changeColumnBackend = (id, title) =>
 
 export const addCardBackend = (title, description, checked, column) =>
   axios.post("/cards", { title, description, checked, column }).then((res) => res);
+
+export const changeCardBackend = (id, title) =>
+  axios.put(`/cards/${id}`, { title }).then((res) => res);
+
+export const deleteCardBackend = (id) => axios.delete(`/cards/${id}`).then((res) => res);
 
 export const addCommentBackend = (body, cardId) =>
   axios.post(`/cards/${cardId}/comments`, { body }).then((res) => res);
