@@ -9,6 +9,7 @@ import AddColumn from "../../components/AddColumn";
 import styles from "./styles";
 import { getColumns } from "../../api";
 import { setColumns } from "../../store/actions";
+import LogoutButton from "../../components/LogoutButton/LogoutButton";
 
 const DeskScreen = ({ navigation }) => {
   const [loading, setLoading] = useState(true);
@@ -23,6 +24,7 @@ const DeskScreen = ({ navigation }) => {
         pressHandler={() => navigation.navigate("AddColumnScreen")}
       />
     ),
+    headerLeft: () => <LogoutButton onPress={() => navigation.navigate("AuthScreen")} />,
   });
 
   useEffect(() => {

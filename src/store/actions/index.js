@@ -13,6 +13,7 @@ import {
   SET_CARDS,
   SET_COMMENTS,
   DELETE_COLUMN,
+  LOGOUT_USER,
 } from "../constants/action_types";
 
 export const setCards = (cards) => ({
@@ -83,4 +84,9 @@ export const changeColumnTitle = (id, title) => ({
 export const initUser = (name, token) => ({
   type: INIT_USER,
   payload: { name, token },
+});
+
+export const logOutUser = () => ({
+  type: LOGOUT_USER,
+  payload: {},
 });

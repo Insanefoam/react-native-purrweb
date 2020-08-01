@@ -17,7 +17,7 @@ const Stack = createStackNavigator();
 
 const Navigator = () => {
   const userInfo = useSelector(selectUserInfo);
-  const initialRoute = userInfo ? "DeskScreen" : "AuthScreen";
+  const initialRoute = userInfo.token ? "DeskScreen" : "AuthScreen";
 
   return (
     <NavigationContainer>
