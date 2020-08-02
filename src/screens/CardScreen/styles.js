@@ -4,6 +4,7 @@ export default StyleSheet.create({
   container: {
     backgroundColor: "#fff",
     flex: 1,
+    paddingTop: 15,
   },
   loading: {
     fontSize: 30,
@@ -16,8 +17,8 @@ export default StyleSheet.create({
   name: {
     fontSize: 22,
   },
-  small: { fontSize: 13 },
-  bold: { fontWeight: "bold" },
+  big: { fontSize: 20, color: "#BFB393" },
+  bold: { fontWeight: "bold", color: "#000" },
   description: { marginTop: 10, paddingLeft: 15 },
   commentsTitle: {
     color: "#72A8BC",

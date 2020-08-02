@@ -2,10 +2,10 @@ import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Back from "../../../assets/back.svg";
 
-const BackButton = ({ pressHandler }) => {
+const BackButton = ({ pressHandler, fillColor }) => {
   return (
     <TouchableOpacity onPress={pressHandler}>
-      <Back width={25} height={25} fill="#000" />
+      <Back width={25} height={25} fill={fillColor} />
     </TouchableOpacity>
   );
 };

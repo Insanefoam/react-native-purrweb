@@ -38,13 +38,10 @@ const CardScreen = ({ route }) => {
         <ScrollView>
           <View>
             <View style={styles.alignCenter}>
-              <Text style={styles.name}>{card.title}</Text>
+              <Text style={styles.big}>{columnName}</Text>
             </View>
             <View style={styles.alignCenter}>
-              <Text style={styles.small}>{columnName}</Text>
-            </View>
-            <View style={styles.alignCenter}>
-              <Text style={styles.small}>
+              <Text style={styles.big}>
                 Author: <Text style={styles.bold}>John Doe</Text>
               </Text>
             </View>

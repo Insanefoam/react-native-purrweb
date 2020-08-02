@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import styles from "./styles";
 import DeskHeader from "./DeskHeader/DeskHeader";
 import ColumnHeader from "./ColumnHeader/ColumnHeader";
+import CardHeader from "./CardHeader/CardHeader";
 
 const Header = ({ screen, navigation, params }) => {
   switch (screen) {
@@ -11,6 +12,8 @@ const Header = ({ screen, navigation, params }) => {
       return <DeskHeader navigation={navigation} />;
     case "ColumnScreen":
       return <ColumnHeader params={params} navigation={navigation} />;
+    case "CardScreen":
+      return <CardHeader params={params} navigation={navigation} />;
     default:
       return (
         <SafeAreaView style={styles.container}>

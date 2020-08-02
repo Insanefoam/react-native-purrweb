@@ -11,7 +11,7 @@ const ColumnHeader = ({ params, navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.buttonContainer}>
-        <BackButton pressHandler={() => navigation.goBack()} />
+        <BackButton pressHandler={navigation.goBack} fillColor="#000" />
       </View>
       <Text style={styles.text}>{title}</Text>
     </SafeAreaView>
