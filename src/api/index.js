@@ -48,4 +48,7 @@ export const deleteCardBackend = (id) => api.delete(`/cards/${id}`).then((res) =
 export const addCommentBackend = (body, cardId) =>
   api.post(`/cards/${cardId}/comments`, { body }).then((res) => res);
 
+export const changeCommentBackend = (id, body) =>
+  api.put(`/comments/${id}`, { body }).then((res) => res);
+
 export const deleteCommentBackend = (id) => api.delete(`/comments/${id}`).then((res) => res);

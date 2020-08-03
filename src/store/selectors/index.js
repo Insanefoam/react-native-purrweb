@@ -15,4 +15,7 @@ export const selectComments = (state, id) =>
     state.cards.filter((card) => card.id === id)[0].commentsIds.includes(comment.id)
   );
 
+export const selectComment = (state, id) =>
+  state.comments.filter((comment) => comment.id === id)[0];
+
 export const selectUserInfo = (state) => state.auth;

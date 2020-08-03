@@ -33,7 +33,13 @@ const CardScreen = ({ route, navigation }) => {
 
   const renderComments = () => {
     return comments.map((comment) => (
-      <Comment id={comment.id} name={comment.body} author={comment.author} key={comment.id} />
+      <Comment
+        id={comment.id}
+        name={comment.body}
+        author={comment.author}
+        changeCommentHandler={() => navigation.navigate("ChangeCommentScreen", { id: comment.id })}
+        key={comment.id}
+      />
     ));
   };
 

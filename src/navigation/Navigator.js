@@ -14,6 +14,7 @@ import ChangeColumnScreen from "../screens/ChangeColumnScreen";
 import ChangeCardScreen from "../screens/ChangeCardScreen";
 import { selectUserInfo } from "../store/selectors";
 import ChangeDescriptionScreen from "../screens/ChangeDescriptionScreen";
+import ChangeCommentScreen from "../screens/ChangeCommentScreen";
 
 const Stack = createStackNavigator();
 
@@ -32,10 +33,12 @@ const Navigator = () => {
           <Stack.Screen name="DeskScreen" component={DeskScreen} />
           <Stack.Screen name="ColumnScreen" component={ColumnScreen} />
           <Stack.Screen name="CardScreen" component={CardScreen} />
+
           <Stack.Screen name="AddColumnScreen" component={AddColumnScreen} />
           <Stack.Screen name="ChangeColumnScreen" component={ChangeColumnScreen} />
           <Stack.Screen name="ChangeCardScreen" component={ChangeCardScreen} />
           <Stack.Screen name="ChangeDescriptionScreen" component={ChangeDescriptionScreen} />
+          <Stack.Screen name="ChangeCommentScreen" component={ChangeCommentScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

@@ -6,8 +6,9 @@ import Trash from "../../../assets/trash.svg";
 import styles from "./styles";
 import { deleteCommentBackend } from "../../api";
 import { deleteComment } from "../../store/actions";
+import Pencil from "../../../assets/pencil.svg";
 
-const Comment = ({ id, name, author = "John Doe" }) => {
+const Comment = ({ id, name, author = "John Doe", changeCommentHandler }) => {
   const dispatch = useDispatch();
 
   const handlePress = () => {
@@ -22,6 +23,9 @@ const Comment = ({ id, name, author = "John Doe" }) => {
         <Text style={styles.author}>{author}</Text>
         <Text style={styles.name}>{name}</Text>
       </View>
+      <TouchableOpacity style={styles.imageContainer} onPress={changeCommentHandler}>
+        <Pencil width={20} height={20} />
+      </TouchableOpacity>
       <TouchableOpacity style={styles.imageContainer} onPress={handlePress}>
         <Trash width={25} height={25} />
       </TouchableOpacity>
