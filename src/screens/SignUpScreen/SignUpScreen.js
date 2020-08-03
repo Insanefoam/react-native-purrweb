@@ -5,10 +5,13 @@ import styles from "./styles";
 import SubmitButton from "../../components/SubmitButton";
 import InputField from "../../components/InputField/InputField";
 import { signUp } from "../../api";
+import DefaultHeader from "../../components/Header/DefaultHeader";
 
 const required = (value) => (value ? undefined : "Required field");
 
 const SignUpScreen = ({ navigation }) => {
+  navigation.setOptions({ header: () => <DefaultHeader navigation={navigation} /> });
+
   const submitHandler = ({ email, name, password }, form) => {
     signUp(email, name, password).then((res) => {
       if (res) {

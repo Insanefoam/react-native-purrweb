@@ -13,7 +13,6 @@ import SignInScreen from "../screens/SignInScreen";
 import ChangeColumnScreen from "../screens/ChangeColumnScreen";
 import ChangeCardScreen from "../screens/ChangeCardScreen";
 import { selectUserInfo } from "../store/selectors";
-import Header from "../components/Header";
 
 const Stack = createStackNavigator();
 
@@ -24,21 +23,7 @@ const Navigator = () => {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            header: ({ scene, navigation }) => {
-              return (
-                <Header
-                  screen={scene.route.name}
-                  navigation={navigation}
-                  params={scene.route.params}
-                />
-              );
-            },
-          }}
-          initialRouteName={initialRoute}
-          headerMode="screen"
-        >
+        <Stack.Navigator initialRouteName={initialRoute} headerMode="screen">
           <Stack.Screen name="AuthScreen" component={AuthScreen} />
           <Stack.Screen name="SignInScreen" component={SignInScreen} />
           <Stack.Screen name="SignUpScreen" component={SignUpScreen} />

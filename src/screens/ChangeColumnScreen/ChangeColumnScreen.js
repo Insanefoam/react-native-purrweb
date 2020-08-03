@@ -8,10 +8,13 @@ import InputField from "../../components/InputField/InputField";
 import styles from "./styles";
 import { changeColumnBackend } from "../../api";
 import { changeColumnTitle } from "../../store/actions";
+import DefaultHeader from "../../components/Header/DefaultHeader";
 
 const required = (value) => (value ? undefined : "Required field");
 
 const ChangeColumnScreen = ({ route, navigation }) => {
+  navigation.setOptions({ header: () => <DefaultHeader navigation={navigation} /> });
+
   const { id } = route.params;
   const columnName = useSelector((state) => selectColumnName(state, id));
   const dispatch = useDispatch();

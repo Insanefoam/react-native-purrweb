@@ -7,10 +7,13 @@ import SubmitButton from "../../components/SubmitButton";
 import InputField from "../../components/InputField/InputField";
 import { signIn } from "../../api";
 import { initUser } from "../../store/actions";
+import DefaultHeader from "../../components/Header/DefaultHeader";
 
 const required = (value) => (value ? undefined : "Required field");
 
 const SignInScreen = ({ navigation }) => {
+  navigation.setOptions({ header: () => <DefaultHeader navigation={navigation} /> });
+
   const dispatch = useDispatch();
 
   const submitHandler = ({ email, password }, form) => {

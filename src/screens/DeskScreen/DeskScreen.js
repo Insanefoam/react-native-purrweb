@@ -7,8 +7,11 @@ import ColumnButton from "../../components/ColumnButton";
 import styles from "./styles";
 import { getColumns } from "../../api";
 import { setColumns } from "../../store/actions";
+import DeskHeader from "../../components/Header/DeskHeader/DeskHeader";
 
 const DeskScreen = ({ navigation }) => {
+  navigation.setOptions({ header: () => <DeskHeader navigation={navigation} /> });
+
   const [loading, setLoading] = useState(true);
   const columns = useSelector(selectColumns);
   const dispatch = useDispatch();

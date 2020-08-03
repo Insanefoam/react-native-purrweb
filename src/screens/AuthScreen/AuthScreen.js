@@ -2,8 +2,11 @@ import React from "react";
 import { View, Text } from "react-native";
 import SubmitButton from "../../components/SubmitButton";
 import styles from "./styles";
+import DefaultHeader from "../../components/Header/DefaultHeader/DefaultHeader";
 
 const AuthScreen = ({ navigation }) => {
+  navigation.setOptions({ header: () => <DefaultHeader navigation={navigation} /> });
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Trello</Text>

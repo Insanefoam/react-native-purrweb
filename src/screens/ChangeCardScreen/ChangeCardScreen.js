@@ -8,10 +8,13 @@ import InputField from "../../components/InputField/InputField";
 import styles from "./styles";
 import { changeCardBackend } from "../../api";
 import { changeCardName } from "../../store/actions";
+import DefaultHeader from "../../components/Header/DefaultHeader";
 
 const required = (value) => (value ? undefined : "Required field");
 
 const ChangeCardScreen = ({ route, navigation }) => {
+  navigation.setOptions({ header: () => <DefaultHeader navigation={navigation} /> });
+
   const { id } = route.params;
   const cardName = useSelector((state) => selectCard(state, id)).title;
   const dispatch = useDispatch();

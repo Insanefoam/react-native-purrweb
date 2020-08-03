@@ -7,8 +7,11 @@ import { addColumn } from "../../store/actions";
 import styles from "./styles";
 import { addColumnBackend } from "../../api";
 import SubmitButton from "../../components/SubmitButton";
+import DefaultHeader from "../../components/Header/DefaultHeader";
 
 const AddColumnScreen = ({ navigation }) => {
+  navigation.setOptions({ header: () => <DefaultHeader navigation={navigation} /> });
+
   const dispatch = useDispatch();
 
   const handleSubmit = ({ column }, form) => {

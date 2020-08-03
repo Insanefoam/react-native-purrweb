@@ -8,8 +8,13 @@ import CardButton from "../../components/CardButton";
 import AddCard from "../../components/AddCard/AddCard";
 import { getCards } from "../../api";
 import { setCards } from "../../store/actions";
+import ColumnHeader from "../../components/Header/ColumnHeader/ColumnHeader";
 
 const ColumnScreen = ({ route, navigation }) => {
+  navigation.setOptions({
+    header: () => <ColumnHeader params={route.params} navigation={navigation} />,
+  });
+
   const { id } = route.params;
   const [loading, setLoading] = useState(true);
   const cards = useSelector((state) => selectCards(state, id));

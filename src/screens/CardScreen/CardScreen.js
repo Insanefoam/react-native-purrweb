@@ -8,8 +8,13 @@ import styles from "./styles";
 import AddComment from "../../components/AddComment";
 import Comment from "../../components/Comment";
 import { setComments } from "../../store/actions";
+import CardHeader from "../../components/Header/CardHeader/CardHeader";
 
-const CardScreen = ({ route }) => {
+const CardScreen = ({ route, navigation }) => {
+  navigation.setOptions({
+    header: () => <CardHeader params={route.params} navigation={navigation} />,
+  });
+
   const { id } = route.params;
   const [loading, setLoading] = useState(true);
   const card = useSelector((state) => selectCard(state, id));
