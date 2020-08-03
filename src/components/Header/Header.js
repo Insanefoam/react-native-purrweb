@@ -1,7 +1,4 @@
 import React from "react";
-import { Text } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import styles from "./styles";
 import DeskHeader from "./DeskHeader/DeskHeader";
 import ColumnHeader from "./ColumnHeader/ColumnHeader";
 import CardHeader from "./CardHeader/CardHeader";
@@ -15,6 +12,8 @@ const Header = ({ screen, navigation, params }) => {
       return <ColumnHeader params={params} navigation={navigation} />;
     case "CardScreen":
       return <CardHeader params={params} navigation={navigation} />;
+    case "AuthScreen":
+      return null;
     default:
       return <DefaultHeader navigation={navigation} />;
   }

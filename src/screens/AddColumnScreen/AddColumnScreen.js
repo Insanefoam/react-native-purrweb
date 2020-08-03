@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { useDispatch } from "react-redux";
-import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
+import { TextInput } from "react-native-gesture-handler";
 import { Form, Field } from "react-final-form";
 import { addColumn } from "../../store/actions";
 import styles from "./styles";
@@ -10,10 +10,6 @@ import SubmitButton from "../../components/SubmitButton";
 
 const AddColumnScreen = ({ navigation }) => {
   const dispatch = useDispatch();
-
-  navigation.setOptions({
-    headerTitle: () => undefined,
-  });
 
   const handleSubmit = ({ column }, form) => {
     addColumnBackend(column)

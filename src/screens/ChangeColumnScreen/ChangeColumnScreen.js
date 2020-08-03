@@ -16,10 +16,6 @@ const ChangeColumnScreen = ({ route, navigation }) => {
   const columnName = useSelector((state) => selectColumnName(state, id));
   const dispatch = useDispatch();
 
-  navigation.setOptions({
-    headerTitle: () => undefined,
-  });
-
   const submitHandler = ({ column }, form) => {
     changeColumnBackend(id, column).then((res) => {
       dispatch(changeColumnTitle(id, column));

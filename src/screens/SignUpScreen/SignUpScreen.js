@@ -9,8 +9,6 @@ import { signUp } from "../../api";
 const required = (value) => (value ? undefined : "Required field");
 
 const SignUpScreen = ({ navigation }) => {
-  navigation.setOptions({ headerTitle: () => undefined });
-
   const submitHandler = ({ email, name, password }, form) => {
     signUp(email, name, password).then((res) => {
       if (res) {

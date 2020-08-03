@@ -45,13 +45,7 @@ const Navigator = () => {
 
           <Stack.Screen name="DeskScreen" component={DeskScreen} />
           <Stack.Screen name="ColumnScreen" component={ColumnScreen} />
-          <Stack.Screen
-            name="CardScreen"
-            component={CardScreen}
-            options={{
-              headerTitle: () => undefined,
-            }}
-          />
+          <Stack.Screen name="CardScreen" component={CardScreen} />
           <Stack.Screen name="AddColumnScreen" component={AddColumnScreen} />
           <Stack.Screen name="ChangeColumnScreen" component={ChangeColumnScreen} />
           <Stack.Screen name="ChangeCardScreen" component={ChangeCardScreen} />

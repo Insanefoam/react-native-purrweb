@@ -12,7 +12,6 @@ const required = (value) => (value ? undefined : "Required field");
 
 const SignInScreen = ({ navigation }) => {
   const dispatch = useDispatch();
-  navigation.setOptions({ headerTitle: () => undefined });
 
   const submitHandler = ({ email, password }, form) => {
     signIn(email, password).then(({ name, token }) => {

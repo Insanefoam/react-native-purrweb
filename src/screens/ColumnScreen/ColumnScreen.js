@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import { View, ScrollView, Text } from "react-native";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
-import { selectCards, selectColumnName } from "../../store/selectors";
+import { selectCards } from "../../store/selectors";
 import styles from "./styles";
 import CardButton from "../../components/CardButton";
 import AddCard from "../../components/AddCard/AddCard";
-import Header from "../../components/Header";
 import { getCards } from "../../api";
 import { setCards } from "../../store/actions";
 
@@ -14,10 +13,7 @@ const ColumnScreen = ({ route, navigation }) => {
   const { id } = route.params;
   const [loading, setLoading] = useState(true);
   const cards = useSelector((state) => selectCards(state, id));
-  const columnName = useSelector((state) => selectColumnName(state, id));
   const dispatch = useDispatch();
-
-  navigation.setOptions({ headerTitle: () => <Header title={columnName} /> });
 
   useEffect(() => {
     getCards().then((res) => {

@@ -16,10 +16,6 @@ const ChangeCardScreen = ({ route, navigation }) => {
   const cardName = useSelector((state) => selectCard(state, id)).title;
   const dispatch = useDispatch();
 
-  navigation.setOptions({
-    headerTitle: () => undefined,
-  });
-
   const submitHandler = ({ card }, form) => {
     changeCardBackend(id, card).then((res) => {
       dispatch(changeCardName(id, card));
