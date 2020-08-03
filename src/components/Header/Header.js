@@ -5,6 +5,7 @@ import styles from "./styles";
 import DeskHeader from "./DeskHeader/DeskHeader";
 import ColumnHeader from "./ColumnHeader/ColumnHeader";
 import CardHeader from "./CardHeader/CardHeader";
+import DefaultHeader from "./DefaultHeader/DefaultHeader";
 
 const Header = ({ screen, navigation, params }) => {
   switch (screen) {
@@ -15,11 +16,7 @@ const Header = ({ screen, navigation, params }) => {
     case "CardScreen":
       return <CardHeader params={params} navigation={navigation} />;
     default:
-      return (
-        <SafeAreaView style={styles.container}>
-          <Text style={styles.text}>Default header</Text>
-        </SafeAreaView>
-      );
+      return <DefaultHeader navigation={navigation} />;
   }
 };
 
