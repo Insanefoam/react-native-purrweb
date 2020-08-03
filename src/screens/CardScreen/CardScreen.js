@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, Text, ScrollView } from "react-native";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { selectCard, selectComments, selectColumnName } from "../../store/selectors";
 import { getComments } from "../../api";
 import styles from "./styles";
@@ -9,6 +10,7 @@ import AddComment from "../../components/AddComment";
 import Comment from "../../components/Comment";
 import { setComments } from "../../store/actions";
 import CardHeader from "../../components/Header/CardHeader/CardHeader";
+import Pencil from "../../../assets/pencil.svg";
 
 const CardScreen = ({ route, navigation }) => {
   navigation.setOptions({
@@ -51,7 +53,14 @@ const CardScreen = ({ route, navigation }) => {
               </Text>
             </View>
             <View style={styles.description}>
-              <Text style={styles.descriptionTitle}>DESCRIPTION</Text>
+              <View style={styles.descriptionTitleContainer}>
+                <Text style={styles.descriptionTitle}>DESCRIPTION</Text>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("ChangeDescriptionScreen", { id })}
+                >
+                  <Pencil width={20} height={20} />
+                </TouchableOpacity>
+              </View>
               <Text style={styles.descriptionText}>{card.description}</Text>
             </View>
           </View>

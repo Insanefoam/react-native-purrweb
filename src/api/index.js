@@ -40,6 +40,9 @@ export const addCardBackend = (title, description, checked, column) =>
 export const changeCardBackend = (id, title) =>
   api.put(`/cards/${id}`, { title }).then((res) => res);
 
+export const changeDescriptionBackend = (id, description) =>
+  api.put(`/cards/${id}`, { description }).then((res) => res);
+
 export const deleteCardBackend = (id) => api.delete(`/cards/${id}`).then((res) => res);
 
 export const addCommentBackend = (body, cardId) =>

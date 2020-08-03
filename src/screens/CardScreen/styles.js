@@ -32,8 +32,13 @@ export default StyleSheet.create({
     color: "#72A8BC",
     paddingVertical: 15,
     fontSize: 15,
+    marginRight: 10,
   },
   descriptionText: {
     fontSize: 17,
+  },
+  descriptionTitleContainer: {
+    flexDirection: "row",
+    alignItems: "center",
   },
 });
