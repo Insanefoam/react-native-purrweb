@@ -3,7 +3,7 @@ import {
   ADD_COLUMN,
   SET_COLUMNS,
   DELETE_COLUMN,
-} from "../constants/action_types";
+} from "store/constants/action_types";
 
 export default function columns(state = [], { type, payload }) {
   switch (type) {

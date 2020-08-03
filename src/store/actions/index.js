@@ -14,7 +14,7 @@ import {
   SET_COMMENTS,
   DELETE_COLUMN,
   LOGOUT_USER,
-} from "../constants/action_types";
+} from "store/constants/action_types";
 
 export const setCards = (cards) => ({
   type: SET_CARDS,

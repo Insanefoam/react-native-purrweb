@@ -2,9 +2,9 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { View, Text } from "react-native";
 import { useSelector } from "react-redux";
+import { selectCard } from "store/selectors";
+import BackButton from "components/BackButton";
 import styles from "./styles";
-import { selectCard } from "../../../store/selectors";
-import BackButton from "../../BackButton";
 
 const CardHeader = ({ params, navigation }) => {
   const card = useSelector((state) => selectCard(state, params.id));

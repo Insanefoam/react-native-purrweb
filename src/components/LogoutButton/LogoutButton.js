@@ -1,8 +1,8 @@
 import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch } from "react-redux";
-import { logOutUser } from "../../store/actions";
-import Logout from "../../../assets/logout.svg";
+import { logOutUser } from "store/actions";
+import Logout from "assets/logout.svg";
 import styles from "./styles";
 
 const LogoutButton = ({ onPress }) => {

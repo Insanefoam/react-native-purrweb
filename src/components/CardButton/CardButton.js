@@ -2,9 +2,9 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { useSelector } from "react-redux";
 import Swipeable from "react-native-gesture-handler/Swipeable";
-import Comment from "../../../assets/comment.svg";
-import Pencil from "../../../assets/pencil.svg";
-import { selectCommentsCount } from "../../store/selectors";
+import Comment from "assets/comment.svg";
+import Pencil from "assets/pencil.svg";
+import { selectCommentsCount } from "store/selectors";
 
 import styles from "./styles";
 import DeleteCardButton from "../DeleteCardButton/DeleteCardButton";

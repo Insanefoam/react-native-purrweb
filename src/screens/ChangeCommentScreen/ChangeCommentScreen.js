@@ -2,13 +2,13 @@ import React from "react";
 import { View, Text } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { Form, Field } from "react-final-form";
-import { selectComment } from "../../store/selectors";
-import SubmitButton from "../../components/SubmitButton";
-import InputField from "../../components/InputField/InputField";
+import { selectComment } from "store/selectors";
+import SubmitButton from "components/SubmitButton";
+import InputField from "components/InputField/InputField";
+import { changeCommentBackend } from "api";
+import { changeComment } from "store/actions";
+import DefaultHeader from "components/Header/DefaultHeader";
 import styles from "./styles";
-import { changeCommentBackend } from "../../api";
-import { changeComment } from "../../store/actions";
-import DefaultHeader from "../../components/Header/DefaultHeader";
 
 const required = (value) => (value ? undefined : "Required field");
 

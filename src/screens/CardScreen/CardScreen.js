@@ -3,14 +3,14 @@ import { View, Text, ScrollView } from "react-native";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { selectCard, selectComments, selectColumnName } from "../../store/selectors";
-import { getComments } from "../../api";
+import { selectCard, selectComments, selectColumnName } from "store/selectors";
+import { getComments } from "api";
+import AddComment from "components/AddComment";
+import Comment from "components/Comment";
+import { setComments } from "store/actions";
+import CardHeader from "components/Header/CardHeader/CardHeader";
+import Pencil from "assets/pencil.svg";
 import styles from "./styles";
-import AddComment from "../../components/AddComment";
-import Comment from "../../components/Comment";
-import { setComments } from "../../store/actions";
-import CardHeader from "../../components/Header/CardHeader/CardHeader";
-import Pencil from "../../../assets/pencil.svg";
 
 const CardScreen = ({ route, navigation }) => {
   navigation.setOptions({

@@ -2,11 +2,11 @@ import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { View, Text } from "react-native";
 import { useDispatch } from "react-redux";
-import Trash from "../../../assets/trash.svg";
+import { deleteCommentBackend } from "api";
+import { deleteComment } from "store/actions";
+import Pencil from "assets/pencil.svg";
+import Trash from "assets/trash.svg";
 import styles from "./styles";
-import { deleteCommentBackend } from "../../api";
-import { deleteComment } from "../../store/actions";
-import Pencil from "../../../assets/pencil.svg";
 
 const Comment = ({ id, name, author = "John Doe", changeCommentHandler }) => {
   const dispatch = useDispatch();

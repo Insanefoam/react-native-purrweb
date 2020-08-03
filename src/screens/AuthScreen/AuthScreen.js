@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text } from "react-native";
-import SubmitButton from "../../components/SubmitButton";
+import SubmitButton from "components/SubmitButton";
+import DefaultHeader from "components/Header/DefaultHeader/DefaultHeader";
 import styles from "./styles";
-import DefaultHeader from "../../components/Header/DefaultHeader/DefaultHeader";
 
 const AuthScreen = ({ navigation }) => {
   navigation.setOptions({ header: () => <DefaultHeader navigation={navigation} /> });

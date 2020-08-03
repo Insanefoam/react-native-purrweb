@@ -2,12 +2,12 @@ import React from "react";
 import { View, Text } from "react-native";
 import { Form, Field } from "react-final-form";
 import { useDispatch } from "react-redux";
+import SubmitButton from "components/SubmitButton";
+import InputField from "components/InputField/InputField";
+import { signIn } from "api";
+import { initUser } from "store/actions";
+import DefaultHeader from "components/Header/DefaultHeader";
 import styles from "./styles";
-import SubmitButton from "../../components/SubmitButton";
-import InputField from "../../components/InputField/InputField";
-import { signIn } from "../../api";
-import { initUser } from "../../store/actions";
-import DefaultHeader from "../../components/Header/DefaultHeader";
 
 const required = (value) => (value ? undefined : "Required field");
 

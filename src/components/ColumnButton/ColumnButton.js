@@ -1,11 +1,11 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { useDispatch } from "react-redux";
-import Trash from "../../../assets/trash.svg";
-import Pencil from "../../../assets/pencil.svg";
+import Trash from "assets/trash.svg";
+import Pencil from "assets/pencil.svg";
+import { deleteColumnBackend } from "api";
+import { deleteColumn } from "store/actions";
 import styles from "./styles";
-import { deleteColumnBackend } from "../../api";
-import { deleteColumn } from "../../store/actions";
 
 const ColumnButton = ({ id, text, navigateColumn, navigateChangeColumn }) => {
   const dispatch = useDispatch();

@@ -3,7 +3,7 @@ import {
   DELETE_COMMENT,
   CHANGE_COMMENT,
   SET_COMMENTS,
-} from "../constants/action_types";
+} from "store/constants/action_types";
 
 export default function comments(state = [], { type, payload }) {
   switch (type) {

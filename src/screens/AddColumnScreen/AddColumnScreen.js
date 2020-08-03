@@ -3,11 +3,11 @@ import { View, Text } from "react-native";
 import { useDispatch } from "react-redux";
 import { TextInput } from "react-native-gesture-handler";
 import { Form, Field } from "react-final-form";
-import { addColumn } from "../../store/actions";
+import { addColumnBackend } from "api";
+import SubmitButton from "components/SubmitButton";
+import DefaultHeader from "components/Header/DefaultHeader";
+import { addColumn } from "store/actions";
 import styles from "./styles";
-import { addColumnBackend } from "../../api";
-import SubmitButton from "../../components/SubmitButton";
-import DefaultHeader from "../../components/Header/DefaultHeader";
 
 const AddColumnScreen = ({ navigation }) => {
   navigation.setOptions({ header: () => <DefaultHeader navigation={navigation} /> });

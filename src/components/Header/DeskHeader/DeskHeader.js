@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import LogoutButton from "../../LogoutButton";
-import AddColumn from "../../AddColumn";
+import LogoutButton from "components/LogoutButton";
+import AddColumn from "components/AddColumn";
 import styles from "./styles";
 
 const DeskHeader = ({ navigation }) => {

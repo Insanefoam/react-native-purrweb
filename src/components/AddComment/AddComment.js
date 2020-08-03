@@ -1,12 +1,12 @@
 import React from "react";
-import { View, TextInput, Image } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
+import { View, TextInput } from "react-native";
+import { useDispatch } from "react-redux";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Form, Field } from "react-final-form";
-import { addComment } from "../../store/actions";
+import { addComment } from "store/actions";
+import { addCommentBackend } from "api";
+import Comment from "assets/comment.svg";
 import styles from "./styles";
-import Comment from "../../../assets/comment.svg";
-import { addCommentBackend } from "../../api";
 
 const AddComment = ({ cardId }) => {
   const dispatch = useDispatch();

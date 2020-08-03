@@ -5,7 +5,7 @@ import {
   CHANGE_CARD_DESCRIPTION,
   ADD_COMMENT,
   SET_CARDS,
-} from "../constants/action_types";
+} from "store/constants/action_types";
 
 export default function cards(state = [], { type, payload }) {
   switch (type) {
@@ -39,16 +39,6 @@ export default function cards(state = [], { type, payload }) {
           ? { ...card, commentsIds: [...card.commentsIds, payload.id] }
           : card
       );
-    // case DELETE_COMMENT: {
-    //   return state.map((card) =>
-    //     card.id === payload.cardId
-    //       ? {
-    //           ...card,
-    //           commentsIds: card.commentsIds.filter((commentId) => commentId !== payload.id),
-    //         }
-    //       : card
-    //   );
-    // }
     default:
       return state;
   }

@@ -1,6 +1,6 @@
 import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import Back from "../../../assets/back.svg";
+import Back from "assets/back.svg";
 
 const BackButton = ({ pressHandler, fillColor }) => {
   return (

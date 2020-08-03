@@ -1,4 +1,4 @@
-import api from "../services";
+import api from "services";
 
 export const signIn = (email, password) =>
   api.post("/auth/sign-in", { email: email.trim(), password: password.trim() }).then((res) => {

@@ -1,4 +1,4 @@
-import { INIT_USER, LOGOUT_USER } from "../constants/action_types";
+import { INIT_USER, LOGOUT_USER } from "store/constants/action_types";
 
 export default function auth(state = { name: "", token: "" }, { type, payload }) {
   switch (type) {

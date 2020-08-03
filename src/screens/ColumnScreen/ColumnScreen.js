@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { View, ScrollView, Text } from "react-native";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
-import { selectCards } from "../../store/selectors";
+import CardButton from "components/CardButton";
+import AddCard from "components/AddCard/AddCard";
+import { getCards } from "api";
+import { setCards } from "store/actions";
+import ColumnHeader from "components/Header/ColumnHeader/ColumnHeader";
+import { selectCards } from "store/selectors";
 import styles from "./styles";
-import CardButton from "../../components/CardButton";
-import AddCard from "../../components/AddCard/AddCard";
-import { getCards } from "../../api";
-import { setCards } from "../../store/actions";
-import ColumnHeader from "../../components/Header/ColumnHeader/ColumnHeader";
 
 const ColumnScreen = ({ route, navigation }) => {
   navigation.setOptions({

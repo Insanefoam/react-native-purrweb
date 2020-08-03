@@ -1,5 +1,5 @@
 import axios from "axios";
-import { store } from "../store/storeConfigure";
+import { store } from "store/storeConfigure";
 
 axios.defaults.baseURL = "https://trello-purrweb.herokuapp.com";
 

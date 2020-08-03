@@ -1,6 +1,6 @@
 import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import Plus from "../../../assets/plus.svg";
+import Plus from "assets/plus.svg";
 import styles from "./styles";
 
 const AddColumn = ({ pressHandler }) => {

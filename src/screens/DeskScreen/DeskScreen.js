@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { View, ScrollView, Text } from "react-native";
-import { selectColumns } from "../../store/selectors";
-import ColumnButton from "../../components/ColumnButton";
+import DeskHeader from "components/Header/DeskHeader/DeskHeader";
+import { selectColumns } from "store/selectors";
+import ColumnButton from "components/ColumnButton";
+import { getColumns } from "api";
+import { setColumns } from "store/actions";
 import styles from "./styles";
-import { getColumns } from "../../api";
-import { setColumns } from "../../store/actions";
-import DeskHeader from "../../components/Header/DeskHeader/DeskHeader";
 
 const DeskScreen = ({ navigation }) => {
   navigation.setOptions({ header: () => <DeskHeader navigation={navigation} /> });

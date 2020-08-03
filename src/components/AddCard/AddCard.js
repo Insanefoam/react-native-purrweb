@@ -3,10 +3,10 @@ import { View, TextInput } from "react-native";
 import { useDispatch } from "react-redux";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Form, Field } from "react-final-form";
-import { addCard } from "../../store/actions";
-import Plus from "../../../assets/plus.svg";
+import { addCard } from "store/actions";
+import { addCardBackend } from "api";
+import Plus from "assets/plus.svg";
 import styles from "./styles";
-import { addCardBackend } from "../../api";
 
 const AddCard = ({ columnId }) => {
   const dispatch = useDispatch();
