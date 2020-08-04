@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 import { Form, Field } from "react-final-form";
 import SubmitButton from "components/SubmitButton";
-import InputField from "components/InputField/InputField";
+import InputField from "components/InputField";
 import { signUp } from "api";
 import DefaultHeader from "components/Header/DefaultHeader";
 import styles from "./styles";
@@ -10,10 +10,12 @@ import styles from "./styles";
 const required = (value) => (value ? undefined : "Required field");
 
 const SignUpScreen = ({ navigation }) => {
-  navigation.setOptions({ header: () => <DefaultHeader navigation={navigation} /> });
+  navigation.setOptions({
+    header: () => <DefaultHeader navigation={navigation} />,
+  });
 
   const submitHandler = ({ email, name, password }, form) => {
-    signUp(email, name, password).then((res) => {
+    signUp(email.trim(), name.trim(), password.trim()).then((res) => {
       if (res) {
         setTimeout(form.reset);
         navigation.navigate("DeskScreen");
@@ -28,8 +30,18 @@ const SignUpScreen = ({ navigation }) => {
       {({ handleSubmit }) => (
         <View style={styles.container}>
           <Text style={styles.title}>Trello</Text>
-          <Field name="name" placeholder="Name" validate={required} component={InputField} />
-          <Field name="email" placeholder="E-mail" validate={required} component={InputField} />
+          <Field
+            name="name"
+            placeholder="Name"
+            validate={required}
+            component={InputField}
+          />
+          <Field
+            name="email"
+            placeholder="E-mail"
+            validate={required}
+            component={InputField}
+          />
           <Field
             name="password"
             placeholder="Password"

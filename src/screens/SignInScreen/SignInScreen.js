@@ -12,12 +12,14 @@ import styles from "./styles";
 const required = (value) => (value ? undefined : "Required field");
 
 const SignInScreen = ({ navigation }) => {
-  navigation.setOptions({ header: () => <DefaultHeader navigation={navigation} /> });
+  navigation.setOptions({
+    header: () => <DefaultHeader navigation={navigation} />,
+  });
 
   const dispatch = useDispatch();
 
   const submitHandler = ({ email, password }, form) => {
-    signIn(email, password).then(({ name, token }) => {
+    signIn(email.trim(), password.trim()).then(({ name, token }) => {
       if (name) {
         dispatch(initUser(name, token));
         setTimeout(form.reset);
@@ -34,7 +36,12 @@ const SignInScreen = ({ navigation }) => {
         <View style={styles.container}>
           <Text style={styles.title}>Trello</Text>
           <View style={styles.email}>
-            <Field name="email" placeholder="E-mail" validate={required} component={InputField} />
+            <Field
+              name="email"
+              placeholder="E-mail"
+              validate={required}
+              component={InputField}
+            />
           </View>
           <View style={styles.password}>
             <Field
