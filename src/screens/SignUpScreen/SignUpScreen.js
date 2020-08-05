@@ -30,24 +30,20 @@ const SignUpScreen = ({ navigation }) => {
       {({ handleSubmit }) => (
         <View style={styles.container}>
           <Text style={styles.title}>Trello</Text>
-          <Field
-            name="name"
-            placeholder="Name"
-            validate={required}
-            component={InputField}
-          />
-          <Field
-            name="email"
-            placeholder="E-mail"
-            validate={required}
-            component={InputField}
-          />
-          <Field
-            name="password"
-            placeholder="Password"
-            validate={required}
-            component={InputField}
-          />
+          <View style={styles.fieldContainer}>
+            <Field name="name" placeholder="Name" validate={required} component={InputField} />
+          </View>
+          <View style={styles.fieldContainer}>
+            <Field name="email" placeholder="E-mail" validate={required} component={InputField} />
+          </View>
+          <View style={styles.fieldContainer}>
+            <Field
+              name="password"
+              placeholder="Password"
+              validate={required}
+              component={InputField}
+            />
+          </View>
           <SubmitButton text="Sign Up" onPress={handleSubmit} />
         </View>
       )}

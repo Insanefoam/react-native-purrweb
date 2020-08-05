@@ -12,4 +12,7 @@ export default StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 30,
   },
+  fieldContainer: {
+    marginBottom: 10,
+  },
 });

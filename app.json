@@ -37,6 +37,11 @@
         "wasm",
         "svg"
       ]
-    }
+    },
+    "android": {
+      "package": "com.no.trello",
+      "versionCode": 1
+    },
+    "description": ""
   }
 }

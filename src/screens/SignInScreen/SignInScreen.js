@@ -9,6 +9,8 @@ import { initUser } from "store/actions";
 import DefaultHeader from "components/Header/DefaultHeader";
 import styles from "./styles";
 
+// Header component -> headers dir
+
 const required = (value) => (value ? undefined : "Required field");
 
 const SignInScreen = ({ navigation }) => {
